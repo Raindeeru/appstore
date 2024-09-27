@@ -17,13 +17,14 @@ import java.io.IOException;
  */
 public class Main extends Application {
 
+    //Scene to ng buong app, scene.setroot niyo nalang kung magswiswitch lang
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
         StoreMenu storeMenu = new StoreMenu();
-        Scene storePageScene = storeMenu.getScene();
-        stage.setScene(storePageScene);
+        scene = new Scene(storeMenu.getParent(), 600, 600);
+        stage.setScene(scene);
         stage.show();
     }
 

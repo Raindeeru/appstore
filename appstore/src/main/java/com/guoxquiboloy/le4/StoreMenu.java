@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
@@ -83,9 +84,9 @@ public class StoreMenu {
 
     
 
-    public Scene getScene(){
+    public Parent getParent(){
 
-        return new Scene(parentContainer, 800, 800);
+        return (Parent)parentContainer;
     }
 
 }
