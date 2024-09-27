@@ -7,9 +7,9 @@ import javafx.scene.layout.VBox;
 public class AppMenu {
 
     VBox vbox = new VBox();
-    Application app;
+    App app;
 
-    public AppMenu(Application app){
+    public AppMenu(App app){
         this.app = app;
     }
 

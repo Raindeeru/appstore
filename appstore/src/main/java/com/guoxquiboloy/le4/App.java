@@ -1,6 +1,6 @@
 package com.guoxquiboloy.le4;
 
-public class Application {
+public class App {
     String title;
     String publisher;
     String genre;
