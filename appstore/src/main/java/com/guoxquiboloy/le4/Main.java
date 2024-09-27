@@ -18,12 +18,12 @@ import java.io.IOException;
 public class Main extends Application {
 
     //Scene to ng buong app, scene.setroot niyo nalang kung magswiswitch lang
-    private static Scene scene;
+    private Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
         StoreMenu storeMenu = new StoreMenu();
-        scene = new Scene(storeMenu.getParent(), 600, 600);
+        scene = storeMenu.getScene();
         stage.setScene(scene);
         stage.show();
     }
