@@ -34,7 +34,7 @@ public class Main extends Application {
 
         for (App game : games) {
             AppMenu appSetOne = new AppMenu(game);
-            Parent gamerz = appSetOne.getApp();
+            Parent gamerz = appSetOne.getGame();
             setGame.getChildren().add(gamerz);
         }
 
@@ -47,7 +47,6 @@ public class Main extends Application {
     }
 
     //Needed Code, pang switch ng scene
-
 
     public static void switchToAppMenu(App app) {
         AppMenu appMenu = new AppMenu(app);
