@@ -7,12 +7,7 @@ import javafx.scene.layout.VBox;
 public class AppMenu {
 
     VBox vbox = new VBox();
-    Application app;
-
-    public AppMenu(Application app){
-        this.app = app;
-    }
-
+    
     @FXML
     private void switchToPrimary() throws IOException {
         Main.setRoot("primary");
