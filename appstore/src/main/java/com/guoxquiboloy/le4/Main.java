@@ -47,7 +47,6 @@ public class Main extends Application {
     }
 
     //Needed Code, pang switch ng scene
-
     public static void switchToAppMenu(App app) {
         AppMenu appMenu = new AppMenu(app);
         scene.setRoot(appMenu.getApp());

@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class AppMenu {
@@ -22,24 +23,44 @@ public class AppMenu {
         //This is the layout of the games in storemenu :o
         VBox gameContain = new VBox(); 
 
-        //ImageView ImageView = new ImageView(app.app_image_path); //mali pa ito pls pahelp pls pls pls 
-        Label titleLable = new Label(app.getTitle()); 
-        Label pubLable = new Label("By: " + app.getPublisher()); 
-        Label rateLable = new Label("Rating: " + app.getStar_rating());
+        ImageView imageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm()); 
+        //mali pa po image pls helpppppp
+        Label titleLabel = new Label(app.getTitle()); 
+        Label pubLabel = new Label("By: " + app.getPublisher()); 
+        Label genreLabel = new Label(app.getGenre()); 
+        Label rateLabel = new Label("Rating: " + app.getStar_rating());
 
-        gameContain.getChildren().addAll(titleLable, pubLable, rateLable); 
-        gameContain.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
+        //Label style 
+        gameContain.setSpacing(2);
+        //gameContain.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
+        titleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 20;");
+        pubLabel.setStyle("-fx-font-size: 16;");
+        genreLabel.setStyle("-fx-font-size: 14;");
+        rateLabel.setStyle("-fx-font-size: 12; -fx-text-fill: red;");
 
-        //Button hello = new Button(); //just made this para mastart ko na layout ng vbox
-        //hello.setOnAction(happy);
+        gameContain.getChildren().addAll(imageView, titleLabel, pubLabel, genreLabel,rateLabel); 
+
+        //just made this para mastart ko na layout ng vbox u can remove once nagawa na main button hehehhe
+        Button hello = new Button(); 
+        hello.setOnAction(event -> {
+            AppMenu mainApp = new AppMenu(app); 
+            Main.switchToAppMenu(app);
+        }
+        );
         
-        return gameContain; 
+        VBox hi = new VBox();
+        hi.getChildren().addAll(gameContain, hello);
+        hi.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
+
+        return hi; 
     }
 
     public Parent getApp(){ 
         //This is the layout for the main app hehehe ;>
-        VBox gameContain = new VBox(); 
-
+        VBox appContain = new VBox(); 
+        
+        ImageView ImageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm()); 
+        //mali pa po image pls helpppppp
         Label titleL = new Label(app.getTitle()); 
         Label pubL = new Label("By: " + app.getPublisher()); 
         Label rateL = new Label("Rating: " + app.getStar_rating()); 
@@ -47,9 +68,16 @@ public class AppMenu {
         Label descriL = new Label("Description"+ "\n" + app.getDescription()); 
         Label downL = new Label("Downloads: " + app.getDownloads()); 
 
-        gameContain.getChildren().addAll(titleL,pubL, genreL, rateL, descriL, downL); 
-        gameContain.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
+        //Label Styles
+        appContain.setSpacing(2);
+        titleL.setStyle("-fx-font-weight: bold; -fx-font-size: 40;");
+        pubL.setStyle("-fx-font-size: 30;");
+        genreL.setStyle("-fx-font-size: 30;");
+        rateL.setStyle("-fx-font-size: 20; -fx-text-fill: red;");
+        descriL.setStyle("-fx-font-size: 16;");
+
+        appContain.getChildren().addAll(ImageView, titleL, pubL, genreL, rateL, descriL, downL); 
         
-        return gameContain; 
+        return appContain; 
     }
 }
