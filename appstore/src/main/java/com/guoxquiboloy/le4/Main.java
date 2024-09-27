@@ -23,7 +23,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         StoreMenu storeMenu = new StoreMenu();
-        scene = storeMenu.getScene();
+        scene = new Scene(storeMenu.getParent(), 600, 600);
         stage.setScene(scene);
         stage.show();
     }
