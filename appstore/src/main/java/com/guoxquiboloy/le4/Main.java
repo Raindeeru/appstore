@@ -4,7 +4,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 
@@ -17,9 +21,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
-        AppJsonParser.getApps();
-        stage.setScene(scene);
+        
+       
+
+        StoreMenu storeMenu = new StoreMenu();
+        Scene storePageScene = storeMenu.getScene();
+        stage.setScene(storePageScene);
         stage.show();
     }
 
