@@ -2,11 +2,14 @@ package com.guoxquiboloy.le4;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
-public class PrimaryController {
+public class StoreMenu {
+    
+    Button button = new Button();
 
     @FXML
     private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+        Main.setRoot("secondary");
     }
 }
