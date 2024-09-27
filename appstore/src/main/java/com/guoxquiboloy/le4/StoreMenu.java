@@ -87,9 +87,5 @@ public class StoreMenu {
 
         return new Scene(parentContainer, 800, 800);
     }
-    
-    @FXML
-    private void switchToSecondary() throws IOException {
-        Main.setRoot("secondary");
-    }
+
 }

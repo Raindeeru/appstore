@@ -1,19 +1,20 @@
 package com.guoxquiboloy.le4;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.ArrayList;
 
 
 public class AppJsonParser {
     
+    ObjectMapper objectMapper;
     public static String appPath = "appStore.json";
 
     public static ArrayList<App> getApps() throws IOException{
-        ArrayList<Application> apps = new ArrayList<Application>();
+        ArrayList<App> apps = new ArrayList<App>();
 
         FileReader reader = new FileReader(new File(appPath));
 

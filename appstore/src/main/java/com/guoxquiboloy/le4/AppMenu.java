@@ -12,10 +12,4 @@ public class AppMenu {
     public AppMenu(App app){
         this.app = app;
     }
-
-    @FXML
-    private void switchToPrimary() throws IOException {
-        Main.setRoot("primary");
-        
-    }
 }

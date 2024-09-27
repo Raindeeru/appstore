@@ -21,23 +21,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        
-       
-
         StoreMenu storeMenu = new StoreMenu();
         Scene storePageScene = storeMenu.getScene();
         stage.setScene(storePageScene);
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
+    //Needed Code, pang switch ng scene
 
     public static void main(String[] args) {
         launch();
