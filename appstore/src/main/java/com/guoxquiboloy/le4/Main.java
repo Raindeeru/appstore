@@ -31,9 +31,14 @@ public class Main extends Application {
     }
 
     //Needed Code, pang switch ng scene
-    public static void switchToAppMenu(App app) {
+    public static void switchToAppMenu(App app) throws IOException {
         AppMenu appMenu = new AppMenu(app);
         scene.setRoot(appMenu.getApp());
+    }
+
+    public static void switchToStoreMenu() throws IOException {
+        StoreMenu backStore = new StoreMenu();
+        scene.setRoot(backStore.getParent());
     }
 
     public static void main(String[] args) throws IOException{

@@ -9,8 +9,12 @@ public class App {
     String description;
     float star_rating;
     int downloads;
-    String app_image_path;
+    String app_image_path = "Mapua.png";
     
+    public String getApp_image_path() {
+        return app_image_path;
+    }
+
     public String getTitle() {
         return title;
     }

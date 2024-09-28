@@ -1,5 +1,7 @@
 package com.guoxquiboloy.le4;
 
+import java.io.IOException;
+
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,11 +17,21 @@ public class AppMenu {
         this.app = app;
     }  
 
-    public Parent getApp(){ 
+    public Parent getApp() throws IOException{ 
         //This is the layout for the main app hehehe ;>
         VBox appContain = new VBox(); 
 
         Button backButton = new Button("< Back");
+        backButton.setOnAction(event ->
+            {
+             try{
+                Main.switchToStoreMenu();
+             }
+             catch(IOException e){
+                System.out.println(e);;
+             }
+            }
+        );
         
         ImageView ImageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm()); 
         //mali pa po image pls helpppppp

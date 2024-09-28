@@ -64,18 +64,18 @@ public class StoreMenu {
         return genreApps;
     }
 
-    public void addAppsToRow(HBox row, ArrayList<App> apps){
+    public void addAppsToRow(HBox row, ArrayList<App> apps) throws IOException{
         for(App app: apps){
             Parent gamerz = getGame(app);
             row.getChildren().add(gamerz);
         }
     }
 
-    public Parent getGame(App app){ 
+    public Parent getGame(App app) throws IOException{ 
         //This is the layout of the games in storemenu :o
         VBox gameContain = new VBox(); 
 
-        ImageView imageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm()); 
+        ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm()); 
         //mali pa po image pls helpppppp
         Label titleLabel = new Label(app.getTitle()); 
         Label pubLabel = new Label("By: " + app.getPublisher()); 
@@ -96,10 +96,14 @@ public class StoreMenu {
         
         gameContain.setCursor(Cursor.HAND);
         gameContain.setOnMouseClicked(event -> {
-            Main.switchToAppMenu(app);
+            {
+                try{Main.switchToAppMenu(app);}
+                catch(IOException e){throw new RuntimeException(e);}
+            }
         }
         );
-        
+        gameContain.setMaxWidth(100);
+        titleLabel.setWrapText(true);
         VBox hi = new VBox();
         hi.getChildren().addAll(gameContain);
         hi.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
