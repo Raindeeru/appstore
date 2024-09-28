@@ -11,7 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class AppMenu {
-
+    
     VBox vbox = new VBox();
     App app;
 

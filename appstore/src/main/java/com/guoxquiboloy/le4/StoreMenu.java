@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -47,6 +48,8 @@ public class StoreMenu {
 
 
     public StoreMenu(){
+        
+        scrollScreen.setVbarPolicy(ScrollBarPolicy.ALWAYS);
         //genres
         genreArrayList.add("Fantasy");
         genreArrayList.add("Puzzle");
@@ -63,26 +66,13 @@ public class StoreMenu {
             HBox genreContainer = new HBox();
             HBox genreAppBox = new HBox();
             Label genreLabel = new Label(genre);
-            VBox app1 = new VBox();
-            VBox app2 = new VBox();
-            app1.setCursor(Cursor.HAND);
-            app2.setCursor(Cursor.HAND);
-            
-            
-
-            
-                
-            
-            
-
-                
-            
             
             genreContainer.getChildren().addAll(genreLabel);
             parentContainer.getChildren().addAll(genreContainer,genreAppBox);
+            
         }
         
-        
+        scrollScreen.setContent(parentContainer);
         
         //appCheckButton.setGraphic(newImageView);
         //genre1AppBox.getChildren().addAll(appCheckButton);
@@ -91,7 +81,9 @@ public class StoreMenu {
         
     }
 
-    
+    public ScrollPane getScrollPane(){
+        return scrollScreen;
+    }
 
     public Parent getParent(){
 
