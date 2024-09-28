@@ -93,14 +93,14 @@ public class StoreMenu {
         gameContain.getChildren().addAll(imageView, titleLabel, pubLabel, genreLabel,rateLabel); 
 
         //just made this para mastart ko na layout ng vbox u can remove once nagawa na main button hehehhe
-        Button hello = new Button(); 
-        hello.setOnAction(event -> {
+        
+        gameContain.setOnMouseClicked(event -> {
             Main.switchToAppMenu(app);
         }
         );
         
         VBox hi = new VBox();
-        hi.getChildren().addAll(gameContain, hello);
+        hi.getChildren().addAll(gameContain);
         hi.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
 
         return hi; 
