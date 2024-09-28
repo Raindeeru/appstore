@@ -52,7 +52,7 @@ public class Main extends Application {
         scene.setRoot(appMenu.getApp());
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         launch();
     }
 
