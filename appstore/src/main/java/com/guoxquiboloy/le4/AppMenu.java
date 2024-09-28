@@ -61,6 +61,8 @@ public class AppMenu {
 
 
         semiTransparentImageView.setFitWidth(800);
+        semiTransparentImageView.setFitHeight(350);
+        semiTransparentImageView.maxHeight(350);
         semiTransparentImageView.setPreserveRatio(false); 
         semiTransparentImageView.maxWidth(Double.MAX_VALUE); 
         appContain.widthProperty().addListener((ChangeListener<? super Number>) new ChangeListener<Number>() {
@@ -97,11 +99,15 @@ public class AppMenu {
         titleL.setWrapText(true);
 
         ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm());
+        imageView.setFitHeight(300);
+        imageView.setFitWidth(300);
         imageAndTitle.getChildren().addAll(imageView, titles);
         titles.getChildren().addAll(titleL, pubL);
         stackedImages.getChildren().addAll( semiTransparentImageView, imageAndTitle, backButton);
         stackedImages.setAlignment(Pos.BOTTOM_LEFT);
+        imageAndTitle.setAlignment(Pos.BOTTOM_LEFT);
         titles.setAlignment(Pos.BOTTOM_LEFT);
+        backButton.setTranslateY(-300);
         appContain.getChildren().addAll( stackedImages, genreL, rateL, descriL, downL);
 
         return appContain;
