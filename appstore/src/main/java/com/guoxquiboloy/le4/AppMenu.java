@@ -1,13 +1,9 @@
 package com.guoxquiboloy.le4;
 
-import java.io.IOException;
-import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class AppMenu {
@@ -22,6 +18,8 @@ public class AppMenu {
     public Parent getApp(){ 
         //This is the layout for the main app hehehe ;>
         VBox appContain = new VBox(); 
+
+        Button backButton = new Button("< Back");
         
         ImageView ImageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm()); 
         //mali pa po image pls helpppppp
@@ -40,7 +38,7 @@ public class AppMenu {
         rateL.setStyle("-fx-font-size: 20; -fx-text-fill: red;");
         descriL.setStyle("-fx-font-size: 16;");
 
-        appContain.getChildren().addAll(ImageView, titleL, pubL, genreL, rateL, descriL, downL); 
+        appContain.getChildren().addAll(backButton, ImageView, titleL, pubL, genreL, rateL, descriL, downL); 
         
         return appContain; 
     }
