@@ -26,22 +26,16 @@ public class StoreMenu {
         
         
         HBox titleBox = new HBox();
-        HBox genre1Container = new HBox();
-        HBox genre1AppBox = new HBox();
-        HBox genre2Container = new HBox();
-        HBox genre2AppBox = new HBox();
-        HBox genre3Container = new HBox();
-        HBox genre3AppBox = new HBox();
+        Label titleLabel = new Label("AppStore");
+        
         
     
         //genre1 element code
 
 
         
-        
+        //PICTURE BUTTON
         Button appCheckButton = new Button();
-        
-        
         ImageView newImageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm());
         
         
@@ -60,26 +54,32 @@ public class StoreMenu {
 
 
     public StoreMenu(){
+        //genres
         genreArrayList.add("Fantasy");
         genreArrayList.add("Puzzle");
         genreArrayList.add("Horror");
+        //title label
+        parentContainer.getChildren().addAll(titleBox);
+        titleBox.getChildren().addAll(titleLabel);
 
-        Label genreLabel = new Label(genreArrayList.get(0));
-
-        Label genreLabel2 = new Label(genreArrayList.get(1));
-
-        Label genreLabel3 = new Label(genreArrayList.get(1));
+        //add hboxes for buttons and genre names
+        for (String genre : genreArrayList){
+            HBox genreContainer = new HBox();
+            HBox genreAppBox = new HBox();
+            Label genreLabel = new Label(genre);
+            Button app1 = new Button("HI GAME");
+            Button app2 = new Button("HI AGAIN");
+            genreAppBox.getChildren().addAll(app1,app2);
+            genreContainer.getChildren().addAll(genreLabel);
+            parentContainer.getChildren().addAll(genreContainer,genreAppBox);
+        }
         
-        parentContainer.getChildren().addAll(genre1Container,genre1AppBox,genre2Container,genre2AppBox,genre3Container,genre3AppBox);
-        genre1Container.getChildren().addAll(genreLabel);
-        appCheckButton.setGraphic(newImageView);
-        genre1AppBox.getChildren().addAll(appCheckButton);
         
-        genre2Container.getChildren().addAll(genreLabel2);
-        genre2AppBox.getChildren().addAll();
+        //appCheckButton.setGraphic(newImageView);
+        //genre1AppBox.getChildren().addAll(appCheckButton);
         
-        genre3Container.getChildren().addAll(genreLabel3);
-        genre3AppBox.getChildren().addAll();
+        
+        
     }
 
     
@@ -88,5 +88,6 @@ public class StoreMenu {
 
         return (Parent)parentContainer;
     }
-
+    
+    
 }
