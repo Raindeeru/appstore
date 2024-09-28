@@ -40,7 +40,6 @@ public class StoreMenu {
     
     //PICTURE BUTTON
     
-    
 
     public StoreMenu(){
         
@@ -77,31 +76,29 @@ public class StoreMenu {
         
         VBox gameContain = new VBox(); 
 
-        ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm()); 
+        ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm());
+ 
         imageView.setFitHeight(imageHeight);
         imageView.setFitWidth(imageWidth);
 
         //mali pa po image pls helpppppp
         Label titleLabel = new Label(app.getTitle()); 
-        Label pubLabel = new Label("By: " + app.getPublisher()); 
-        Label genreLabel = new Label(app.getGenre()); 
         Label rateLabel = new Label("Rating: " + app.getStar_rating());
 
         //Label style 
         gameContain.setSpacing(2);
         //gameContain.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
         
-        gameContain.setPadding(new Insets(0, 3, 0 ,3));
+        gameContain.setPadding(new Insets(0, 5, 0 ,5));
         titleLabel.setStyle("-fx-text-fill: #F2F0EF; -fx-font-weight: bold; -fx-font-size: 20;");
-        pubLabel.setStyle("-fx-text-fill: #F2F0EF; -fx-font-size: 16;");
-        genreLabel.setStyle("-fx-text-fill: #F2F0EF;-fx-font-size: 14;");
         rateLabel.setStyle("-fx-font-size: 12; -fx-text-fill: #eb7255;");
 
+        
         
         //scrollbar
         scrollScreen.setStyle("-fx-background-color: #191a1c; -fx-background: transparent");
         
-        gameContain.getChildren().addAll(imageView, titleLabel, pubLabel, genreLabel,rateLabel); 
+        gameContain.getChildren().addAll(imageView, titleLabel, rateLabel); 
 
         //just made this para mastart ko na layout ng vbox u can remove once nagawa na main button hehehhe
         
@@ -125,25 +122,27 @@ public class StoreMenu {
     public void addGenreRows(VBox parent) throws IOException{
         
         for(ArrayList<App> genreApps: getGenreApps()){
-            Font appFont = new Font("Verdana",25);
+            Font appFont = new Font("Trebuchet MS",30);
 
             VBox genreCategory = new VBox();
             Label genreLabel = new Label(genreApps.get(0).genre);
             ScrollPane appScroll = new ScrollPane();
             genreLabel.setMaxWidth(800);
             genreLabel.setFont(appFont);
-            genreLabel.setStyle("-fx-text-fill: #FFFFFF");
+            genreLabel.setStyle("-fx-text-fill: #FFFFFF; -fx-font-weight:bold");
+            genreLabel.setPadding(new Insets(0,0,10,0));
             HBox row = new HBox();
             appScroll.setContent(row);
             addAppsToRow(row, genreApps);
             appScroll.setMaxWidth(800);
             appScroll.setVbarPolicy(ScrollBarPolicy.NEVER);
-            appScroll.setPrefHeight(350);
+            appScroll.setPrefHeight(300);
             appScroll.setFitToHeight(true);
             genreCategory.setAlignment(Pos.CENTER);
             genreCategory.getChildren().add(genreLabel);
             genreCategory.getChildren().add(appScroll);
             row.setSpacing(10);
+            genreCategory.setPadding(new Insets(0, 20, 0, 20));
             parent.getChildren().add(genreCategory);
            
             appScroll.setStyle("-fx-background-color: transparent;");
@@ -153,9 +152,11 @@ public class StoreMenu {
     
     public Parent getParent() throws IOException{
         
+        HBox titleBar = new HBox();
         Label title = new Label("FatBoy Repacks");
-        
-        parentContainer.getChildren().add(title);
+        title.setFont(new Font(40));
+        titleBar.getChildren().add(title);
+        parentContainer.getChildren().add(titleBar);
         
         addGenreRows(parentContainer);
         scrollScreen.setContent(parentContainer);
