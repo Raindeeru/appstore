@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -16,6 +17,7 @@ import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class StoreMenu {
@@ -87,11 +89,17 @@ public class StoreMenu {
         //Label style 
         gameContain.setSpacing(2);
         //gameContain.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
-        titleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 20;");
-        pubLabel.setStyle("-fx-font-size: 16;");
-        genreLabel.setStyle("-fx-font-size: 14;");
-        rateLabel.setStyle("-fx-font-size: 12; -fx-text-fill: red;");
+        
+        gameContain.setPadding(new Insets(0, 3, 0 ,3));
+        titleLabel.setStyle("-fx-text-fill: #F2F0EF; -fx-font-weight: bold; -fx-font-size: 20;");
+        pubLabel.setStyle("-fx-text-fill: #F2F0EF; -fx-font-size: 16;");
+        genreLabel.setStyle("-fx-text-fill: #F2F0EF;-fx-font-size: 14;");
+        rateLabel.setStyle("-fx-font-size: 12; -fx-text-fill: #eb7255;");
 
+        
+        //scrollbar
+        scrollScreen.setStyle("-fx-background-color: #191a1c; -fx-background: transparent");
+        
         gameContain.getChildren().addAll(imageView, titleLabel, pubLabel, genreLabel,rateLabel); 
 
         //just made this para mastart ko na layout ng vbox u can remove once nagawa na main button hehehhe
@@ -108,8 +116,8 @@ public class StoreMenu {
         VBox hi = new VBox();
         titleLabel.setWrapText(true);
         hi.getChildren().addAll(gameContain);
-        //hi.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
-
+        
+        
         return hi; 
     }
 
@@ -132,6 +140,9 @@ public class StoreMenu {
             genreCategory.getChildren().add(genreLabel);
             genreCategory.getChildren().add(appScroll);
             parent.getChildren().add(genreCategory);
+           
+            appScroll.setStyle("-fx-background-color: transparent;");
+            
         }
     }
     
