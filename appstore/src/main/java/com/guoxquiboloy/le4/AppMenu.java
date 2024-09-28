@@ -1,15 +1,15 @@
 package com.guoxquiboloy.le4;
 
 import java.io.IOException;
-import javafx.fxml.FXML;
+
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+
 
 public class AppMenu {
 
@@ -18,79 +18,80 @@ public class AppMenu {
 
     public AppMenu(App app){
         this.app = app;
-    }  
-
-    public Parent getGame(){ 
-        //This is the layout of the games in storemenu :o
-        VBox gameContain = new VBox(); 
-
-        ImageView imageView = new ImageView(getClass().getResource(app.app_image_path).toExternalForm());
-        imageView.setFitHeight(100);
-        imageView.setFitWidth(100);
-        Rectangle clip = new Rectangle(imageView.getFitHeight(), imageView.getFitWidth());
-        clip.setArcWidth(20);
-        clip.setArcHeight(20);
-        imageView.setClip(clip);
-        //mali pa po image pls helpppppp
-        Label titleLabel = new Label(app.getTitle()); 
-        Label pubLabel = new Label("By: " + app.getPublisher()); 
-        Label genreLabel = new Label(app.getGenre()); 
-        Label rateLabel = new Label("Rating: " + app.getStar_rating());
-
-        //Label style 
-        gameContain.setSpacing(2);
-        //gameContain.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
-        titleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 20;");
-        pubLabel.setStyle("-fx-font-size: 16;");
-        genreLabel.setStyle("-fx-font-size: 14;");
-        rateLabel.setStyle("-fx-font-size: 12; -fx-text-fill: red;");
-
-        gameContain.getChildren().addAll(imageView, titleLabel, pubLabel, genreLabel,rateLabel); 
-
-        //just made this para mastart ko na layout ng vbox u can remove once nagawa na main button hehehhe
-        Button hello = new Button(); 
-        hello.setOnAction(event -> {
-            AppMenu mainApp = new AppMenu(app); 
-            Main.switchToAppMenu(app);
-        }
-        );
-        
-        VBox hi = new VBox();
-        hi.getChildren().addAll(gameContain, hello);
-        hi.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
-
-        return hi; 
     }
 
-    public Parent getApp(){ 
-        //This is the layout for the main app hehehe ;>
-        VBox appContain = new VBox(); 
-        
-        ImageView ImageView = new ImageView(getClass().getResource(app.app_image_path).toExternalForm()); 
-        ImageView.setFitHeight(100);
-        ImageView.setFitWidth(100);
-        Rectangle clip = new Rectangle(ImageView.getFitHeight(), ImageView.getFitWidth());
-        clip.setArcWidth(20);
-        clip.setArcHeight(20);
-        ImageView.setClip(clip);
-        //mali pa po image pls helpppppp
-        Label titleL = new Label(app.getTitle()); 
-        Label pubL = new Label("By: " + app.getPublisher()); 
-        Label rateL = new Label("Rating: " + app.getStar_rating()); 
-        Label genreL = new Label(app.getGenre()); 
-        Label descriL = new Label("Description"+ "\n" + app.getDescription()); 
-        Label downL = new Label("Downloads: " + app.getDownloads()); 
+    public Parent getApp() throws IOException{
+        VBox appContain = new VBox();
 
-        //Label Styles
+        appContain.setStyle("-fx-background-color: #191a1c;");
+
+        Button backButton = new Button("< Back");
+        backButton.setOnAction(event -> {
+            try {
+                Main.switchToStoreMenu();
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        });
+
+        backButton.setTranslateY(-225); 
+
+        ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm());
+        imageView.setTranslateX(25); 
+        imageView.setTranslateY(-103);  
+
+        Image semiTransparentImage = new Image(getClass().getResource(app.getApp_image_path()).toExternalForm());
+        ImageView semiTransparentImageView = new ImageView(semiTransparentImage);
+        semiTransparentImageView.setOpacity(0.5); 
+        
+
+
+        semiTransparentImageView.setFitWidth(800); 
+        semiTransparentImageView.setPreserveRatio(false); 
+        semiTransparentImageView.maxWidth(Double.MAX_VALUE); 
+
+
+        appContain.getChildren().add(0, semiTransparentImageView); 
+
+       
+        Label titleL = new Label(app.getTitle());
+        Label pubL = new Label("By: " + app.getPublisher());
+        Label rateL = new Label("Rating: " + app.getStar_rating());
+        Label genreL = new Label(app.getGenre());
+        Label descriL = new Label("Description" + "\n" + app.getDescription());
+        Label downL = new Label("Downloads: " + app.getDownloads());
+
+      
         appContain.setSpacing(2);
-        titleL.setStyle("-fx-font-weight: bold; -fx-font-size: 40;");
-        pubL.setStyle("-fx-font-size: 30;");
-        genreL.setStyle("-fx-font-size: 30;");
-        rateL.setStyle("-fx-font-size: 20; -fx-text-fill: red;");
-        descriL.setStyle("-fx-font-size: 16;");
+        titleL.setStyle("-fx-font-weight: bold; -fx-font-size: 40; -fx-text-fill: white;");
+        titleL.setTranslateX(265);
+        titleL.setTranslateY(-320);
 
-        appContain.getChildren().addAll(ImageView, titleL, pubL, genreL, rateL, descriL, downL); 
-        
-        return appContain; 
+        pubL.setStyle("-fx-font-size: 30; -fx-text-fill: white;");
+        pubL.setTranslateX(265);
+        pubL.setTranslateY(-319);
+
+        genreL.setStyle("-fx-font-size: 30; -fx-text-fill: white;");
+        genreL.setTranslateX(265);
+        genreL.setTranslateY(-318);
+
+        rateL.setStyle("-fx-font-size: 20; -fx-text-fill: red;");
+        rateL.setTranslateX(25);
+        rateL.setTranslateY(-250);
+
+        descriL.setStyle("-fx-font-size: 16; -fx-text-fill: white;");
+        descriL.setTranslateX(25);
+        descriL.setTranslateY(-245);
+
+        downL.setStyle("-fx-font-size: 11; -fx-text-fill: white;");
+        downL.setTranslateX(25);
+        downL.setTranslateY(-240);
+
+        descriL.setWrapText(true);
+
+       
+        appContain.getChildren().addAll(backButton, imageView, titleL, pubL, genreL, rateL, descriL, downL);
+
+        return appContain;
     }
 }

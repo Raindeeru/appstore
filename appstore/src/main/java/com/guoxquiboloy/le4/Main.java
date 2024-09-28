@@ -1,15 +1,8 @@
 package com.guoxquiboloy.le4;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
-
 import java.io.IOException;
 
 /**
@@ -24,32 +17,20 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         StoreMenu storeMenu = new StoreMenu();
 
-        //hardcode bla bla kill me now hehhehe 
-        HBox setGame = new HBox(); 
-
-        App[] games = new App[] {
-            new App("CraftMine", "Jangmo", "Fantasy", "Explore the world of CraftMine", 4, 100, "craftmine_app.jpg"),
-            new App("Stardew Valley", "Concered Ape", "Fantasy", "Explore the world of Stradew Valley", 5,1000000, "stardewvalley_app.png")
-        }; 
-
-        for (App game : games) {
-            AppMenu appSetOne = new AppMenu(game);
-            Parent gamerz = appSetOne.getGame();
-            setGame.getChildren().add(gamerz);
-        }
-
-        VBox gameLayout = (VBox) storeMenu.getParent();
-        gameLayout.getChildren().add(2, setGame);
-
-        scene = new Scene(storeMenu.getParent(), 600, 600);
+        scene = new Scene(storeMenu.getParent(), 800, 600);
         stage.setScene(scene);
         stage.show();
     }
 
     //Needed Code, pang switch ng scene
-    public static void switchToAppMenu(App app) {
+    public static void switchToAppMenu(App app) throws IOException {
         AppMenu appMenu = new AppMenu(app);
         scene.setRoot(appMenu.getApp());
+    }
+
+    public static void switchToStoreMenu() throws IOException {
+        StoreMenu backStore = new StoreMenu();
+        scene.setRoot(backStore.getParent());
     }
 
     public static void main(String[] args) throws IOException{
