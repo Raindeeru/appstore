@@ -87,8 +87,6 @@ public class StoreMenu {
                 genreAppBox.getChildren().addAll(app1,app2);
 
                 break;
-                
-
             }
             
                 
