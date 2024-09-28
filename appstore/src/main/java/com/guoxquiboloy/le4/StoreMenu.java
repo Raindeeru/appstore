@@ -133,14 +133,15 @@ public class StoreMenu {
     }
     
     public Parent getParent() throws IOException{
-        Label Title = new Label("FatBoy Repacks");
-        parentContainer.getChildren().add(Title);
+        Label title = new Label("FatBoy Repacks");
+        parentContainer.getChildren().add(title);
+        
         addGenreRows(parentContainer);
         scrollScreen.setContent(parentContainer);
         scrollScreen.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollScreen.setFitToWidth(true);
-        parentContainer.setMaxWidth(1920);
-        parentContainer.setAlignment(Pos.CENTER);
+        
+        
         return (Parent)scrollScreen;
     }
     
