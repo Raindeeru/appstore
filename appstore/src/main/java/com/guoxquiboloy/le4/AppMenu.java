@@ -19,42 +19,6 @@ public class AppMenu {
         this.app = app;
     }  
 
-    public Parent getGame(){ 
-        //This is the layout of the games in storemenu :o
-        VBox gameContain = new VBox(); 
-
-        ImageView imageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm()); 
-        //mali pa po image pls helpppppp
-        Label titleLabel = new Label(app.getTitle()); 
-        Label pubLabel = new Label("By: " + app.getPublisher()); 
-        Label genreLabel = new Label(app.getGenre()); 
-        Label rateLabel = new Label("Rating: " + app.getStar_rating());
-
-        //Label style 
-        gameContain.setSpacing(2);
-        //gameContain.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
-        titleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 20;");
-        pubLabel.setStyle("-fx-font-size: 16;");
-        genreLabel.setStyle("-fx-font-size: 14;");
-        rateLabel.setStyle("-fx-font-size: 12; -fx-text-fill: red;");
-
-        gameContain.getChildren().addAll(imageView, titleLabel, pubLabel, genreLabel,rateLabel); 
-
-        //just made this para mastart ko na layout ng vbox u can remove once nagawa na main button hehehhe
-        Button hello = new Button(); 
-        hello.setOnAction(event -> {
-            AppMenu mainApp = new AppMenu(app); 
-            Main.switchToAppMenu(app);
-        }
-        );
-        
-        VBox hi = new VBox();
-        hi.getChildren().addAll(gameContain, hello);
-        hi.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
-
-        return hi; 
-    }
-
     public Parent getApp(){ 
         //This is the layout for the main app hehehe ;>
         VBox appContain = new VBox(); 
