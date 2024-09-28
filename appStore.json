@@ -1,165 +1,92 @@
 [
   {
-    "title": "Skyward Realms",
-    "publisher": "Aether Arc Studios",
-    "genre": "Fantasy Strategy",
-    "description": "In Skyward Realms, players build and manage floating islands, forge alliances, and conquer new territories in the sky. Use your strategic skills to gather resources and expand your empire while defending against rival kingdoms.",
-    "star_rating": 4.5,
-    "downloads": 1250000,
-    "app_image_path": "Mapua.png"
-  },
-  {
-    "title": "Pixel Pirates: Ocean Plunder",
-    "publisher": "RetroMarauder Games",
-    "genre": "Fantasy Strategy",
-    "description": "A retro pixel-art pirate game where players command a pirate crew, battle sea monsters, and hunt for hidden treasures across 8-bit oceans. Navigate dangerous waters and build the most notorious pirate empire.",
-    "star_rating": 4.0,
-    "downloads": 980000,
-    "app_image_path": "Mapua.png"
-  },
-  {
-    "title": "Mecha Clash: Neon Wars",
-    "publisher": "NeonCircuit Interactive",
-    "genre": "Fantasy Strategy",
-    "description": "Enter a dystopian future where you control giant mech warriors in high-stakes, neon-lit city battles. Customize your mecha with advanced weaponry and fight through epic story missions or online multiplayer combat.",
-    "star_rating": 4.2,
-    "downloads": 850000,
-    "app_image_path": "Mapua.png"
-  },
-  {
-    "title": "Mystic Forest Escape",
-    "publisher": "Dreamgate Interactive",
-    "genre": "Fantasy Strategy",
-    "description": "Solve intricate puzzles and unlock magical mysteries as you journey through an enchanted forest. Mystic Forest Escape blends mind-bending challenges with a rich narrative and stunning visuals.",
-    "star_rating": 4.8,
+    "title": "Eclipse of the Synth Horizon",
+    "publisher": "Skyforge Studios",
+    "genre": "Sci-Fi RPG",
+    "description": "Set in a future where AI has merged with humanity, players explore a sprawling galaxy, forging alliances and battling rogue AI factions in an immersive open-world RPG.",
+    "star_rating": 4.4,
     "downloads": 2400000,
-    "app_image_path": "Mapua.png"
+    "app_image_path": "Eclipse of the Synth Horizon.jpg"
   },
   {
-    "title": "Galaxy Drift Racers",
-    "publisher": "Hypernova Studios",
-    "genre": "Horror",
-    "description": "Race through the galaxy in high-speed spacecraft, dodging asteroids and navigating gravity wells. With deep customization, intense multiplayer modes, and stunning cosmic tracks, become the galaxy's top racer.",
-    "star_rating": 4.6,
-    "downloads": 1500000,
-    "app_image_path": "Mapua.png"
-  },
-  {
-    "title": "Zombie Bunker Defense",
-    "publisher": "Apocalypse Arts",
-    "genre": "Horror",
-    "description": "Defend your bunker from endless waves of zombies. Strategically place turrets, traps, and upgrade defenses in this intense, survival-driven tower defense game.",
-    "star_rating": 3.9,
-    "downloads": 720000,
-    "app_image_path": "Mapua.png"
-  },
-  {
-    "title": "Elemental Heroes: Battle Forge",
-    "publisher": "Fireforge Games",
-    "genre": "Fantasy RPG",
-    "description": "Summon elemental warriors, forge legendary weapons, and engage in turn-based combat with mythical creatures. Build your hero's team and face epic bosses in this tactical fantasy RPG.",
-    "star_rating": 4.3,
-    "downloads": 1130000,
-    "app_image_path": "Mapua.png"
-  },
-  {
-    "title": "Crypt Crawler: Dungeon Run",
-    "publisher": "Shadowrun Studios",
-    "genre": "Horror",
-    "description": "Venture deep into treacherous dungeons filled with deadly traps and mythical monsters. Collect treasures, upgrade your character, and survive as long as possible in this fast-paced dungeon crawler.",
+    "title": "Chrono Shift: Lost Eras",
+    "publisher": "Temporal Arc Games",
+    "genre": "Action-Adventure,, Time Travel",
+    "description": "Players manipulate time to solve puzzles and fight enemies across different historical periods, altering timelines to prevent the destruction of reality.",
     "star_rating": 3.8,
-    "downloads": 640000,
-    "app_image_path": "Mapua.png"
+    "downloads": 910000,
+    "app_image_path": "Chrono Shift - Lost Eras.jpg"
   },
   {
-    "title": "Quantum Shift Puzzles",
-    "publisher": "Paradox Labs",
-    "genre": "Horror",
-    "description": "Solve complex quantum puzzles to manipulate space and time. Each level presents a unique challenge that will push the boundaries of your logic and creativity in this sci-fi puzzle game.",
+    "title": "Project Singularity",
+    "publisher": "Neural Nexus Interactive",
+    "genre": "Tactical Shooter",
+    "description": "A team-based tactical shooter where players control advanced AI combat units fighting for control of a city in a dystopian future, where each faction is powered by unique neural networks.",
+    "star_rating": 4.5,
+    "downloads": 1300000,
+    "app_image_path": "Project Singularity.jpg"
+  },
+  {
+    "title": "Veil of Eternity",
+    "publisher": "Ethereal Games",
+    "genre": "Fantasy RPG",
+    "description": "Set in a magical universe where realms of reality are fading, players assume the roles of powerful guardians tasked with uniting ancient factions to restore balance to the fabric of time.",
     "star_rating": 4.7,
-    "downloads": 1350000,
-    "app_image_path": "Mapua.png"
+    "downloads": 3600000,
+    "app_image_path": "Veil of Eternity.jpg"
   },
   {
-    "title": "Alien Zoo Tycoon",
-    "publisher": "Cosmic Safari Studios",
+    "title": "Automation Overlords",
+    "publisher": "CyberFate Studios",
+    "genre": "Strategy, Simulation",
+    "description": "Players take control of sentient AI managing a futuristic metropolis, balancing citizen needs while defending against rebel human factions who seek to reclaim control from their robotic rulers.",
+    "star_rating": 3.9,
+    "downloads": 700000,
+    "app_image_path": "Automation Overlords.jpg"
+  },
+  {
+    "title": "Neon Shogun",
+    "publisher": "Ronin Pixel Games",
+    "genre": "Cyberpunk Action",
+    "description": "A cyberpunk action game set in a futuristic Tokyo, where players assume the role of a rogue samurai in a neon-lit world, using both blade and hacking skills to overthrow corrupt megacorporations.",
+    "star_rating": 4.2,
+    "downloads": 1100000,
+    "app_image_path": "Neon Shogun.jpg"
+  },
+  {
+    "title": "Echoes of the Forgotten",
+    "publisher": "Liminal Dream Studios",
     "genre": "Horror",
-    "description": "Manage an intergalactic zoo filled with exotic alien species. Build habitats, research new creatures, and keep your guests entertained in this quirky and creative zoo management sim.",
+    "description": "An atmospheric horror game where players explore an abandoned island inhabited by the fragmented memories of its former citizens, uncovering terrifying secrets about what caused their disappearance.",
+    "star_rating": 4.0,
+    "downloads": 860000,
+    "app_image_path": "Echoes of the Forgotten.jpg"
+  },
+  {
+    "title": "Aetherbound",
+    "publisher": "Astral Pulse Entertainment",
+    "genre": "Space Exploration RPG",
+    "description": "A spacefaring RPG where players pilot customizable ships through uncharted solar systems, engaging in diplomacy, combat, and deep-space exploration, while uncovering an ancient race's forgotten techonology.",
+    "star_rating": 4.7,
+    "downloads": 2100000,
+    "app_image_path": "Aetherbound.jpg"
+  },
+  {
+    "title": "BioScribe: Genesis",
+    "publisher": "Genetic Revolution Studios",
+    "genre": "Sci-Fi Strategy, Simulation",
+    "description": "In a world where genetic engineering is the norm, players design, evolve, and manage their own species to survive and thrive in a rapidly changing environment filled with natural and artificial threats.",
+    "star_rating": 3.6,
+    "downloads": 410000,
+    "app_image_path": "BioScribe - Genesis.jpg"
+  },
+  {
+    "title": "Codebreakers: Rise of the AIs",
+    "publisher": "Quantum Shift Interactive",
+    "genre": "Puzzle, Thriller",
+    "description": "A puzzle-driven thriller where players must hack into AI-driven systems to prevent a catastrophic global cyberwar, solving, complex logic challenges while outsmarting increasingly intelligent and adaptive foes.",
     "star_rating": 4.1,
-    "downloads": 890000,
-    "app_image_path": "Mapua.png"
-  },
-  {
-    "title": "Freaky Gojo",
-    "publisher": "Freaky Roblox",
-    "genre": "Horror",
-    "description": "Gojo but Freaky",
-    "star_rating": 5,
-    "downloads": 999999,
-    "app_image_path": "Freaky.png"
-  }
-  ,
-  {
-    "title": "Freaky Gojo",
-    "publisher": "Freaky Roblox",
-    "genre": "Horror",
-    "description": "Gojo but Freaky",
-    "star_rating": 5,
-    "downloads": 999999,
-    "app_image_path": "Freaky.png"
-  },
-  {
-    "title": "Freaky Gojo",
-    "publisher": "Freaky Roblox",
-    "genre": "Horror",
-    "description": "Gojo but Freaky",
-    "star_rating": 5,
-    "downloads": 999999,
-    "app_image_path": "Freaky.png"
-  },
-  {
-    "title": "Freaky Gojo",
-    "publisher": "Freaky Roblox",
-    "genre": "Horror",
-    "description": "Gojo but Freaky",
-    "star_rating": 5,
-    "downloads": 999999,
-    "app_image_path": "Freaky.png"
-  },
-  {
-    "title": "Freaky Gojo",
-    "publisher": "Freaky Roblox",
-    "genre": "Horror",
-    "description": "Gojo but Freaky",
-    "star_rating": 5,
-    "downloads": 999999,
-    "app_image_path": "Freaky.png"
-  },
-  {
-    "title": "Freaky Gojo",
-    "publisher": "Freaky Roblox",
-    "genre": "Horror",
-    "description": "Gojo but Freaky",
-    "star_rating": 5,
-    "downloads": 999999,
-    "app_image_path": "Freaky.png"
-  },
-  {
-    "title": "Freaky Gojo",
-    "publisher": "Freaky Roblox",
-    "genre": "Horror",
-    "description": "Gojo but Freaky",
-    "star_rating": 5,
-    "downloads": 999999,
-    "app_image_path": "Freaky.png"
-  },
-  {
-    "title": "Freaky Gojo",
-    "publisher": "Freaky Roblox",
-    "genre": "Horror",
-    "description": "Gojo but Freaky",
-    "star_rating": 5,
-    "downloads": 999999,
-    "app_image_path": "Freaky.png"
+    "downloads": 500000,
+    "app_image_path": "Codebreaker - Rise of the AIs.jpg"
   }
 ]
