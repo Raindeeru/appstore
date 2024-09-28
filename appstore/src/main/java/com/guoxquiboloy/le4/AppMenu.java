@@ -2,9 +2,12 @@ package com.guoxquiboloy.le4;
 
 import java.io.IOException;
 
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -40,13 +43,19 @@ public class AppMenu {
         imageView.setTranslateX(25); 
         imageView.setTranslateY(-103);
 
+        
+
         Image semiTransparentImage = new Image(getClass().getResource(app.getApp_image_path()).toExternalForm());
         ImageView semiTransparentImageView = new ImageView(semiTransparentImage);
         semiTransparentImageView.setOpacity(0.5); 
         
+        ColorAdjust adj = new ColorAdjust(0, -0.9, -0.5, 0);
+        GaussianBlur blur = new GaussianBlur(20); // 55 is just to show edge effect more clearly.
+        adj.setInput(blur);
+        semiTransparentImageView.setEffect(blur);
 
 
-        semiTransparentImageView.setFitWidth(800); 
+        semiTransparentImageView.setFitWidth(800);
         semiTransparentImageView.setPreserveRatio(false); 
         semiTransparentImageView.maxWidth(Double.MAX_VALUE); 
 
