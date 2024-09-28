@@ -157,10 +157,15 @@ public class StoreMenu {
     }
 
     public void addGenreRows(VBox parent) throws IOException{
+        
         for(ArrayList<App> genreApps: getGenreApps()){
+            VBox genreCategory = new VBox();
+            Label genreLabel = new Label(genreApps.get(0).genre);
             HBox row = new HBox();
             addAppsToRow(row, genreApps);
-            parent.getChildren().add(row);
+            genreCategory.getChildren().add(genreLabel);
+            genreCategory.getChildren().add(row);
+            parent.getChildren().add(genreCategory);
         }
     }
     
