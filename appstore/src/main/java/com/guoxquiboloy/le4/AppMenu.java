@@ -17,6 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.Cursor;
 
 
 public class AppMenu {
@@ -37,7 +38,15 @@ public class AppMenu {
 
         appContain.setStyle("-fx-background-color: #191a1c;");
 
-        Button backButton = new Button("< Back");
+        Button backButton = new Button();
+        Image backButtonImage = new Image(getClass().getResourceAsStream("backbutton.png"));
+        ImageView backButtonImageView = new ImageView(backButtonImage);
+        backButtonImageView.setFitHeight(75);
+        backButtonImageView.setFitWidth(100);
+        backButtonImageView.setPreserveRatio(true);
+        backButton.setGraphic(backButtonImageView);
+        backButton.setStyle("-fx-background-color: transparent; -fx-border-color: transparent;");
+        backButton.setCursor(Cursor.HAND);
         backButton.setOnAction(event -> {
             try {
                 Main.switchToStoreMenu();
@@ -50,11 +59,11 @@ public class AppMenu {
 
         StackPane stackedImages = new StackPane();                
 
-        Image semiTransparentImage = new Image(getClass().getResource(app.getApp_image_path()).toExternalForm());
+        Image semiTransparentImage = new Image(getClass().getResource(app.getapp_background_image_path()).toExternalForm());
         ImageView semiTransparentImageView = new ImageView(semiTransparentImage);
         
         ColorAdjust adj = new ColorAdjust(0, -0.9, -0.5, 0);
-        GaussianBlur blur = new GaussianBlur(20); // 55 is just to show edge effect more clearly.
+        GaussianBlur blur = new GaussianBlur(20);
         adj.setInput(blur);
         semiTransparentImageView.setEffect(blur);
         semiTransparentImageView.setOpacity(0.5);
@@ -83,17 +92,18 @@ public class AppMenu {
 
       
         appContain.setSpacing(2);
-        titleL.setStyle("-fx-font-weight: bold; -fx-font-size: 40; -fx-text-fill: white;");
+        titleL.setStyle("-fx-font-family: 'Trebuchet MS'; -fx-font-weight: bold; -fx-font-size: 40; -fx-text-fill: white;");
 
-        pubL.setStyle("-fx-font-size: 30; -fx-text-fill: white;");
+        pubL.setStyle("-fx-font-family: 'Trebuchet MS'; -fx-font-size: 30; -fx-text-fill: white;");
 
         genreL.setStyle("-fx-font-size: 30; -fx-text-fill: white;");
-
+        genreL.setPadding(new Insets(0, 0, 0, 10));
         rateL.setStyle("-fx-font-size: 20; -fx-text-fill: red;");
-
+        rateL.setPadding(new Insets(0, 0, 0, 10));
         descriL.setStyle("-fx-font-size: 16; -fx-text-fill: white;");
-
+        descriL.setPadding(new Insets(0, 0, 0, 10));
         downL.setStyle("-fx-font-size: 11; -fx-text-fill: white;");
+        downL.setPadding(new Insets(0, 0, 0, 10));
 
         descriL.setWrapText(true);
         titleL.setWrapText(true);
@@ -101,6 +111,16 @@ public class AppMenu {
         ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm());
         imageView.setFitHeight(300);
         imageView.setFitWidth(300);
+        Rectangle clip = new Rectangle(imageView.getFitHeight(), imageView.getFitWidth());
+        clip.setArcHeight(30);
+        clip.setArcWidth(30);
+        imageView.setClip(clip);
+        HBox imageContainer = new HBox();
+        imageContainer.setAlignment(Pos.CENTER_LEFT);
+        HBox.setMargin(imageView, new Insets(0, 10, 0, 0));
+        imageContainer.getChildren().add(imageView);
+        imageContainer.setPadding(new Insets(5));
+        imageAndTitle.getChildren().addAll(imageContainer);
         imageAndTitle.getChildren().addAll(imageView, titles);
         titles.getChildren().addAll(titleL, pubL);
         stackedImages.getChildren().addAll( semiTransparentImageView, imageAndTitle, backButton);
