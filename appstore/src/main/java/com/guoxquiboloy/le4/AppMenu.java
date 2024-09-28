@@ -2,7 +2,10 @@ package com.guoxquiboloy.le4;
 
 import java.io.IOException;
 
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,6 +13,8 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 
@@ -23,7 +28,11 @@ public class AppMenu {
     }
 
     public Parent getApp() throws IOException{
+
         VBox appContain = new VBox();
+        HBox imageAndTitle = new HBox();
+        VBox titles = new VBox();
+        appContain.setMaxWidth(1920);
 
         appContain.setStyle("-fx-background-color: #191a1c;");
 
@@ -31,35 +40,35 @@ public class AppMenu {
         backButton.setOnAction(event -> {
             try {
                 Main.switchToStoreMenu();
+                System.out.println("hahaha");
             } catch (IOException e) {
                 System.out.println(e);
             }
         });
 
-        backButton.setTranslateY(-225); 
 
-        ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm());
-        imageView.setTranslateX(25); 
-        imageView.setTranslateY(-103);  
-
-        
+        StackPane stackedImages = new StackPane();                
 
         Image semiTransparentImage = new Image(getClass().getResource(app.getApp_image_path()).toExternalForm());
         ImageView semiTransparentImageView = new ImageView(semiTransparentImage);
-        semiTransparentImageView.setOpacity(0.5); 
         
         ColorAdjust adj = new ColorAdjust(0, -0.9, -0.5, 0);
         GaussianBlur blur = new GaussianBlur(20); // 55 is just to show edge effect more clearly.
         adj.setInput(blur);
         semiTransparentImageView.setEffect(blur);
+        semiTransparentImageView.setOpacity(0.5);
 
 
         semiTransparentImageView.setFitWidth(800);
         semiTransparentImageView.setPreserveRatio(false); 
         semiTransparentImageView.maxWidth(Double.MAX_VALUE); 
+        appContain.widthProperty().addListener((ChangeListener<? super Number>) new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
+                semiTransparentImageView.setFitWidth(appContain.getWidth());
+            }
+        });
 
-
-        appContain.getChildren().add(0, semiTransparentImageView); 
 
        
         Label titleL = new Label(app.getTitle());
@@ -72,33 +81,27 @@ public class AppMenu {
       
         appContain.setSpacing(2);
         titleL.setStyle("-fx-font-weight: bold; -fx-font-size: 40; -fx-text-fill: white;");
-        titleL.setTranslateX(265);
-        titleL.setTranslateY(-320);
 
         pubL.setStyle("-fx-font-size: 30; -fx-text-fill: white;");
-        pubL.setTranslateX(265);
-        pubL.setTranslateY(-319);
 
         genreL.setStyle("-fx-font-size: 30; -fx-text-fill: white;");
-        genreL.setTranslateX(265);
-        genreL.setTranslateY(-318);
 
         rateL.setStyle("-fx-font-size: 20; -fx-text-fill: red;");
-        rateL.setTranslateX(25);
-        rateL.setTranslateY(-250);
 
         descriL.setStyle("-fx-font-size: 16; -fx-text-fill: white;");
-        descriL.setTranslateX(25);
-        descriL.setTranslateY(-245);
 
         downL.setStyle("-fx-font-size: 11; -fx-text-fill: white;");
-        downL.setTranslateX(25);
-        downL.setTranslateY(-240);
 
         descriL.setWrapText(true);
+        titleL.setWrapText(true);
 
-       
-        appContain.getChildren().addAll(backButton, imageView, titleL, pubL, genreL, rateL, descriL, downL);
+        ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm());
+        imageAndTitle.getChildren().addAll(imageView, titles);
+        titles.getChildren().addAll(titleL, pubL);
+        stackedImages.getChildren().addAll( semiTransparentImageView, imageAndTitle, backButton);
+        stackedImages.setAlignment(Pos.BOTTOM_LEFT);
+        titles.setAlignment(Pos.BOTTOM_LEFT);
+        appContain.getChildren().addAll( stackedImages, genreL, rateL, descriL, downL);
 
         return appContain;
     }
