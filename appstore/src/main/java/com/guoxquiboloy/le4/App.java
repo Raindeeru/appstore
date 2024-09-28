@@ -9,16 +9,6 @@ public class App {
     int downloads;
     String app_image_path;
     
-    public App(String title, String publisher, String genre, String description, float star_rating, int downloads,String app_image_path) {
-        this.title = title;
-        this.publisher = publisher;
-        this.genre = genre;
-        this.description = description;
-        this.star_rating = star_rating;
-        this.downloads = downloads;
-        this.app_image_path = app_image_path;
-    }
-    
     public String getTitle() {
         return title;
     }

@@ -30,7 +30,7 @@ public class Main extends Application {
 
     //Needed Code, pang switch ng scene
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         launch();
     }
 
