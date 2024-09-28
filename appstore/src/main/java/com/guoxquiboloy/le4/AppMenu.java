@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 
 public class AppMenu {
 
@@ -23,7 +24,13 @@ public class AppMenu {
         //This is the layout of the games in storemenu :o
         VBox gameContain = new VBox(); 
 
-        ImageView imageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm()); 
+        ImageView imageView = new ImageView(getClass().getResource(app.app_image_path).toExternalForm());
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(100);
+        Rectangle clip = new Rectangle(imageView.getFitHeight(), imageView.getFitWidth());
+        clip.setArcWidth(20);
+        clip.setArcHeight(20);
+        imageView.setClip(clip);
         //mali pa po image pls helpppppp
         Label titleLabel = new Label(app.getTitle()); 
         Label pubLabel = new Label("By: " + app.getPublisher()); 
@@ -59,7 +66,13 @@ public class AppMenu {
         //This is the layout for the main app hehehe ;>
         VBox appContain = new VBox(); 
         
-        ImageView ImageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm()); 
+        ImageView ImageView = new ImageView(getClass().getResource(app.app_image_path).toExternalForm()); 
+        ImageView.setFitHeight(100);
+        ImageView.setFitWidth(100);
+        Rectangle clip = new Rectangle(ImageView.getFitHeight(), ImageView.getFitWidth());
+        clip.setArcWidth(20);
+        clip.setArcHeight(20);
+        ImageView.setClip(clip);
         //mali pa po image pls helpppppp
         Label titleL = new Label(app.getTitle()); 
         Label pubL = new Label("By: " + app.getPublisher()); 
