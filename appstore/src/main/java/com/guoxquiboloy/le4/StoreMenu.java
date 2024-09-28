@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -13,6 +14,7 @@ import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class StoreMenu {
@@ -101,9 +103,9 @@ public class StoreMenu {
             }
         }
         );
-        gameContain.setMaxWidth(100);
-        titleLabel.setWrapText(true);
+        gameContain.setMaxWidth(200);
         VBox hi = new VBox();
+        titleLabel.setWrapText(true);
         hi.getChildren().addAll(gameContain);
         //hi.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
 
@@ -120,8 +122,10 @@ public class StoreMenu {
             appScroll.setContent(row);
             addAppsToRow(row, genreApps);
             appScroll.setMaxWidth(800);
-            //appScroll.setHbarPolicy(ScrollBarPolicy.NEVER);
+            appScroll.setVbarPolicy(ScrollBarPolicy.NEVER);
+            appScroll.setPrefHeight(350);
             appScroll.setFitToHeight(true);
+            genreCategory.setAlignment(Pos.CENTER);
             genreCategory.getChildren().add(genreLabel);
             genreCategory.getChildren().add(appScroll);
             parent.getChildren().add(genreCategory);
@@ -134,6 +138,9 @@ public class StoreMenu {
         addGenreRows(parentContainer);
         scrollScreen.setContent(parentContainer);
         scrollScreen.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollScreen.setFitToWidth(true);
+        parentContainer.setMaxWidth(1920);
+        parentContainer.setAlignment(Pos.CENTER);
         return (Parent)scrollScreen;
     }
     
