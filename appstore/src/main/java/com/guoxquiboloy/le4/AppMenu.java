@@ -42,8 +42,12 @@ public class AppMenu {
         ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm());
         imageView.setTranslateX(25); 
         imageView.setTranslateY(-103);
-
-        
+        imageView.setFitHeight(200);
+        imageView.setFitWidth(200);
+        Rectangle clip = new Rectangle(imageView.getFitHeight(), imageView.getFitWidth());
+        clip.setArcHeight(30);
+        clip.setArcWidth(30);
+        imageView.setClip(clip);
 
         Image semiTransparentImage = new Image(getClass().getResource(app.getApp_image_path()).toExternalForm());
         ImageView semiTransparentImageView = new ImageView(semiTransparentImage);
