@@ -72,6 +72,7 @@ public class StoreMenu {
 
     public Parent getGame(App app) throws IOException{ 
         //This is the layout of the games in storemenu :o
+        
         VBox gameContain = new VBox(); 
 
         ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm()); 
@@ -116,11 +117,14 @@ public class StoreMenu {
     public void addGenreRows(VBox parent) throws IOException{
         
         for(ArrayList<App> genreApps: getGenreApps()){
+            Font appFont = new Font("Verdana",25);
+
             VBox genreCategory = new VBox();
             Label genreLabel = new Label(genreApps.get(0).genre);
             ScrollPane appScroll = new ScrollPane();
             genreLabel.setMaxWidth(800);
-            genreLabel.setFont(new Font(25));
+            genreLabel.setFont(appFont);
+            genreLabel.setStyle("-fx-text-fill: #FFFFFF");
             HBox row = new HBox();
             appScroll.setContent(row);
             addAppsToRow(row, genreApps);
@@ -131,19 +135,23 @@ public class StoreMenu {
             genreCategory.setAlignment(Pos.CENTER);
             genreCategory.getChildren().add(genreLabel);
             genreCategory.getChildren().add(appScroll);
+            row.setSpacing(10);
             parent.getChildren().add(genreCategory);
         }
     }
     
     public Parent getParent() throws IOException{
+        
         Label title = new Label("FatBoy Repacks");
+        
         parentContainer.getChildren().add(title);
         
         addGenreRows(parentContainer);
         scrollScreen.setContent(parentContainer);
         scrollScreen.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollScreen.setFitToWidth(true);
-        
+        parentContainer.setSpacing(30);
+        parentContainer.setStyle("-fx-background-color: #191a1c");
         
         return (Parent)scrollScreen;
     }
