@@ -18,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
 public class StoreMenu {
@@ -93,7 +94,7 @@ public class StoreMenu {
         titleLabel.setStyle("-fx-text-fill: #F2F0EF; -fx-font-weight: bold; -fx-font-size: 20;");
         rateLabel.setStyle("-fx-font-size: 12; -fx-text-fill: #eb7255;");
 
-        
+
         
         //scrollbar
         scrollScreen.setStyle("-fx-background-color: #191a1c; -fx-background: transparent");
@@ -113,6 +114,14 @@ public class StoreMenu {
         gameContain.setMaxWidth(200);
         VBox hi = new VBox();
         titleLabel.setWrapText(true);
+
+        Rectangle roundImage = new Rectangle(
+            imageView.getFitWidth(), imageView.getFitHeight()
+        );
+        roundImage.setArcHeight(30);
+        roundImage.setArcWidth(30);
+        imageView.setClip(roundImage);
+
         hi.getChildren().addAll(gameContain);
         
         
@@ -122,15 +131,16 @@ public class StoreMenu {
     public void addGenreRows(VBox parent) throws IOException{
         
         for(ArrayList<App> genreApps: getGenreApps()){
-            Font appFont = new Font("Trebuchet MS",30);
 
             VBox genreCategory = new VBox();
             Label genreLabel = new Label(genreApps.get(0).genre);
             ScrollPane appScroll = new ScrollPane();
+            HBox genreTitle = new HBox();
             genreLabel.setMaxWidth(800);
-            genreLabel.setFont(appFont);
-            genreLabel.setStyle("-fx-text-fill: #FFFFFF; -fx-font-weight:bold");
+            genreLabel.setFont( new Font("Trebuchet MS",30));
+            genreLabel.setStyle("-fx-text-fill: #FFFFFF; -fx-font-weight:bold; -fx-font-family: Trebuchet MS");
             genreLabel.setPadding(new Insets(0,0,10,0));
+            genreTitle.getChildren().add(genreLabel);
             HBox row = new HBox();
             appScroll.setContent(row);
             addAppsToRow(row, genreApps);
@@ -139,10 +149,11 @@ public class StoreMenu {
             appScroll.setPrefHeight(300);
             appScroll.setFitToHeight(true);
             genreCategory.setAlignment(Pos.CENTER);
-            genreCategory.getChildren().add(genreLabel);
+            genreCategory.getChildren().add(genreTitle);
             genreCategory.getChildren().add(appScroll);
             row.setSpacing(10);
             genreCategory.setPadding(new Insets(0, 20, 0, 20));
+            genreCategory.setPrefWidth(1200);
             parent.getChildren().add(genreCategory);
            
             appScroll.setStyle("-fx-background-color: transparent;");
@@ -154,18 +165,23 @@ public class StoreMenu {
         
         HBox titleBar = new HBox();
         Label title = new Label("FatBoy Repacks");
-        title.setFont(new Font(40));
+        VBox content = new VBox();
+        title.setFont(new Font("Trebuchet MS",40));
+        title.setStyle("-fx-text-fill: #FFFFFF; -fx-font-weight:bold");
         titleBar.getChildren().add(title);
         parentContainer.getChildren().add(titleBar);
+        VBox.setMargin(titleBar, new Insets(10,0,0,50));
         
-        addGenreRows(parentContainer);
-        scrollScreen.setContent(parentContainer);
+        addGenreRows(content);
+        scrollScreen.setContent(content);
         scrollScreen.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollScreen.setFitToWidth(true);
         parentContainer.setSpacing(30);
+        content.setStyle("-fx-background-color: transparent");
         parentContainer.setStyle("-fx-background-color: #191a1c");
+        parentContainer.getChildren().add(scrollScreen);
         
-        return (Parent)scrollScreen;
+        return (Parent)parentContainer;
     }
     
 
