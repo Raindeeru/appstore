@@ -25,7 +25,8 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         StoreMenu storeMenu = new StoreMenu();
 
-        scene = new Scene(storeMenu.getParent(), 600, 600);
+        scene = new Scene(storeMenu.getParent(), 800, 600);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

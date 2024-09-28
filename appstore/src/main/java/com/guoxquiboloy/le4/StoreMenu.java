@@ -123,6 +123,9 @@ public class StoreMenu {
             HBox row = new HBox();
             appScroll.setContent(row);
             addAppsToRow(row, genreApps);
+            appScroll.setMaxWidth(800);
+            appScroll.setHbarPolicy(ScrollBarPolicy.AS_NEEDED);
+            appScroll.setFitToHeight(true);
             genreCategory.getChildren().add(genreLabel);
             genreCategory.getChildren().add(appScroll);
             parent.getChildren().add(genreCategory);
