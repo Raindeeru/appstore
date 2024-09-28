@@ -33,7 +33,7 @@ public class AppMenu {
             }
         );
         
-        ImageView ImageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm()); 
+        ImageView ImageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm()); 
         //mali pa po image pls helpppppp
         Label titleL = new Label(app.getTitle()); 
         Label pubL = new Label("By: " + app.getPublisher()); 
@@ -49,6 +49,8 @@ public class AppMenu {
         genreL.setStyle("-fx-font-size: 30;");
         rateL.setStyle("-fx-font-size: 20; -fx-text-fill: red;");
         descriL.setStyle("-fx-font-size: 16;");
+
+        descriL.setWrapText(true);
 
         appContain.getChildren().addAll(backButton, ImageView, titleL, pubL, genreL, rateL, descriL, downL); 
         

@@ -3,18 +3,15 @@ package com.guoxquiboloy.le4;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javafx.fxml.FXML;
+import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -33,7 +30,6 @@ public class StoreMenu {
     
     double imageWidth = 200;
     double imageHeight = 200;
-    Image newImage, freakyAppImage;
     ImageView imageView1, imageView2;
     //genre1 element code
     
@@ -109,7 +105,7 @@ public class StoreMenu {
         titleLabel.setWrapText(true);
         VBox hi = new VBox();
         hi.getChildren().addAll(gameContain);
-        hi.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
+        //hi.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
 
         return hi; 
     }
@@ -124,7 +120,7 @@ public class StoreMenu {
             appScroll.setContent(row);
             addAppsToRow(row, genreApps);
             appScroll.setMaxWidth(800);
-            appScroll.setHbarPolicy(ScrollBarPolicy.AS_NEEDED);
+            //appScroll.setHbarPolicy(ScrollBarPolicy.NEVER);
             appScroll.setFitToHeight(true);
             genreCategory.getChildren().add(genreLabel);
             genreCategory.getChildren().add(appScroll);

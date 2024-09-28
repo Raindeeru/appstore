@@ -1,17 +1,9 @@
 package com.guoxquiboloy.le4;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
-
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * JavaFX App
@@ -26,7 +18,6 @@ public class Main extends Application {
         StoreMenu storeMenu = new StoreMenu();
 
         scene = new Scene(storeMenu.getParent(), 800, 600);
-        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
