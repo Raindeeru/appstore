@@ -76,7 +76,7 @@ public class AppMenu {
        
         Label titleL = new Label(app.getTitle());
         Label pubL = new Label("By: " + app.getPublisher());
-        Label rateL = new Label("Rating: " + app.getStar_rating());
+        Label rateL = new Label("Rating: " + app.getStar_rating() + "★");
         Label genreL = new Label(app.getGenre());
         Label descriL = new Label("Description" + "\n" + app.getDescription());
         Label downL = new Label("Downloads: " + app.getDownloads());
@@ -89,7 +89,7 @@ public class AppMenu {
 
         genreL.setStyle("-fx-font-size: 30; -fx-text-fill: white;");
 
-        rateL.setStyle("-fx-font-size: 20; -fx-text-fill: red;");
+        rateL.setStyle("-fx-font-size: 20; -fx-text-fill: #eb7255;");
 
         descriL.setStyle("-fx-font-size: 16; -fx-text-fill: white;");
 

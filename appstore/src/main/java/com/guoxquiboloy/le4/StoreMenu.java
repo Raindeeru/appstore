@@ -10,6 +10,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.ImageView;
@@ -19,6 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.geometry.Orientation;
 
 public class StoreMenu {
     
@@ -75,15 +77,14 @@ public class StoreMenu {
         //This is the layout of the games in storemenu :o
         
         VBox gameContain = new VBox(); 
-
         ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm());
  
         imageView.setFitHeight(imageHeight);
         imageView.setFitWidth(imageWidth);
 
-        //mali pa po image pls helpppppp
+        //mali pa po image pls helpppppp (DONE!)
         Label titleLabel = new Label(app.getTitle()); 
-        Label rateLabel = new Label("Rating: " + app.getStar_rating());
+        Label rateLabel = new Label(app.getStar_rating() + " ★");
 
         //Label style 
         gameContain.setSpacing(2);
@@ -123,31 +124,59 @@ public class StoreMenu {
         
         for(ArrayList<App> genreApps: getGenreApps()){
             Font appFont = new Font("Trebuchet MS",30);
-
+            //full function
             VBox genreCategory = new VBox();
             Label genreLabel = new Label(genreApps.get(0).genre);
             ScrollPane appScroll = new ScrollPane();
+            HBox row = new HBox();
+            appScroll.setContent(row);
+            addAppsToRow(row, genreApps);
+            //designs
             genreLabel.setMaxWidth(800);
             genreLabel.setFont(appFont);
             genreLabel.setStyle("-fx-text-fill: #FFFFFF; -fx-font-weight:bold");
             genreLabel.setPadding(new Insets(0,0,10,0));
-            HBox row = new HBox();
-            appScroll.setContent(row);
-            addAppsToRow(row, genreApps);
+            
+            styleScrollBars(appScroll);
             appScroll.setMaxWidth(800);
             appScroll.setVbarPolicy(ScrollBarPolicy.NEVER);
             appScroll.setPrefHeight(300);
             appScroll.setFitToHeight(true);
             genreCategory.setAlignment(Pos.CENTER);
-            genreCategory.getChildren().add(genreLabel);
-            genreCategory.getChildren().add(appScroll);
             row.setSpacing(10);
             genreCategory.setPadding(new Insets(0, 20, 0, 20));
+
+
             parent.getChildren().add(genreCategory);
-           
             appScroll.setStyle("-fx-background-color: transparent;");
+
+
+
+            genreCategory.getChildren().add(genreLabel);
+            genreCategory.getChildren().add(appScroll);
+            
             
         }
+    }
+
+    public static void styleScrollBars(ScrollPane scrollPane) {
+        // Listen for when the ScrollPane's skin is set
+        scrollPane.skinProperty().addListener((obs, oldSkin, newSkin) -> {
+            // Find all ScrollBars in the ScrollPane
+            for (javafx.scene.Node node : scrollPane.lookupAll(".scroll-bar")) {
+                if (node instanceof ScrollBar) {
+                    ScrollBar scrollBar = (ScrollBar) node;
+                    
+                    
+                    if (scrollBar.getOrientation() == Orientation.HORIZONTAL) {
+                        scrollBar.setStyle("-fx-background-color: black;"); // Scrollbar background color
+                    }
+
+                    // Customize the thumb (draggable part)
+                    scrollBar.lookup(".thumb").setStyle("-fx-background-color: red; -fx-background-radius: 6;");
+                }
+            }
+        });
     }
     
     public Parent getParent() throws IOException{
