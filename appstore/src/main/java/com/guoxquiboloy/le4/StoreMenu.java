@@ -31,21 +31,9 @@ public class StoreMenu {
         
     
         //genre1 element code
-
-
         
         //PICTURE BUTTON
-        Button appCheckButton = new Button();
-        ImageView newImageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm());
         
-        
-
-        //genre2 element code
-        
-        
-        
-
-        //genre3 element code
         
 
         
@@ -69,6 +57,8 @@ public class StoreMenu {
             Label genreLabel = new Label(genre);
             Button app1 = new Button("HI GAME");
             Button app2 = new Button("HI AGAIN");
+            ImageView newImageView = new ImageView(getClass().getResource("Mapua.png").toExternalForm());
+            app1.setGraphic(newImageView);
             genreAppBox.getChildren().addAll(app1,app2);
             genreContainer.getChildren().addAll(genreLabel);
             parentContainer.getChildren().addAll(genreContainer,genreAppBox);
