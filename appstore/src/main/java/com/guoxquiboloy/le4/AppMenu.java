@@ -38,7 +38,7 @@ public class AppMenu {
 
         ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm());
         imageView.setTranslateX(25); 
-        imageView.setTranslateY(-103);  
+        imageView.setTranslateY(-103);
 
         Image semiTransparentImage = new Image(getClass().getResource(app.getApp_image_path()).toExternalForm());
         ImageView semiTransparentImageView = new ImageView(semiTransparentImage);
