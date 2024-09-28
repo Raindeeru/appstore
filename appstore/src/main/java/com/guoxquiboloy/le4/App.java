@@ -10,9 +10,15 @@ public class App {
     float star_rating;
     int downloads;
     String app_image_path = "Mapua.png";
+    String app_background_image_path = "Mapua.png";
     
     public String getApp_image_path() {
         return app_image_path;
+    }
+
+    public String getapp_background_image_path()
+    {
+        return app_background_image_path;
     }
 
     public String getTitle() {
@@ -39,7 +45,7 @@ public class App {
         return downloads;
     }
     public App(String title, String publisher, String genre, String description, float star_rating, int downloads,
-            String app_image_path) {
+            String app_image_path, String app_background_image_path) {
         this.title = title;
         this.publisher = publisher;
         this.genre = genre;
@@ -47,6 +53,7 @@ public class App {
         this.star_rating = star_rating;
         this.downloads = downloads;
         this.app_image_path = app_image_path;
+        this.app_background_image_path = app_background_image_path;
     }
     
 }
