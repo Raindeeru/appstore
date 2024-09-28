@@ -94,6 +94,7 @@ public class StoreMenu {
 
         //just made this para mastart ko na layout ng vbox u can remove once nagawa na main button hehehhe
         
+        gameContain.setCursor(Cursor.HAND);
         gameContain.setOnMouseClicked(event -> {
             Main.switchToAppMenu(app);
         }
