@@ -161,10 +161,12 @@ public class StoreMenu {
         for(ArrayList<App> genreApps: getGenreApps()){
             VBox genreCategory = new VBox();
             Label genreLabel = new Label(genreApps.get(0).genre);
+            ScrollPane appScroll = new ScrollPane();
             HBox row = new HBox();
+            appScroll.setContent(row);
             addAppsToRow(row, genreApps);
             genreCategory.getChildren().add(genreLabel);
-            genreCategory.getChildren().add(row);
+            genreCategory.getChildren().add(appScroll);
             parent.getChildren().add(genreCategory);
         }
     }
