@@ -1,9 +1,7 @@
 package com.guoxquiboloy.le4;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
-import java.util.List;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
@@ -16,7 +14,7 @@ public class AppJsonParser {
     public static String appPath = "appStore.json";
     public static Gson gson = new Gson();
 
-    public static ArrayList<App> test() throws IOException{
+    public static ArrayList<App> getApps() throws IOException{
         BufferedReader bufferedReader = new BufferedReader(
             new FileReader(appPath)
         );

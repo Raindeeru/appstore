@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * JavaFX App
@@ -26,11 +27,8 @@ public class Main extends Application {
 
         //hardcode bla bla kill me now hehhehe 
         HBox setGame = new HBox(); 
-
-        App[] games = new App[] {
-            new App("CraftMine", "Jangmo", "Fantasy", "Explore the world of CraftMine", 4, 100, "Mapua.png"),
-            new App("Stardew Valley", "Concered Ape", "Fantasy", "Explore the world of Stradew Valley", 5,1000000, "Mapua.png")
-        }; 
+        
+        ArrayList<App> games = AppJsonParser.getApps();
 
         for (App game : games) {
             AppMenu appSetOne = new AppMenu(game);
