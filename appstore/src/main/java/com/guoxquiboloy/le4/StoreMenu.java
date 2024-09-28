@@ -76,6 +76,9 @@ public class StoreMenu {
         VBox gameContain = new VBox(); 
 
         ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm()); 
+        imageView.setFitHeight(imageHeight);
+        imageView.setFitWidth(imageWidth);
+
         //mali pa po image pls helpppppp
         Label titleLabel = new Label(app.getTitle()); 
         Label pubLabel = new Label("By: " + app.getPublisher()); 
