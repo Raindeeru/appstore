@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -69,28 +70,50 @@ public class StoreMenu {
             
             
 
-            switch(genre){
+            
+                
+            switch (genre) {
                 case "Fantasy":
-                newImage = new Image("file:appstore\\src\\main\\resources\\com\\guoxquiboloy\\le4\\Mapua.png");
-                freakyAppImage = new Image("file:appstore\\src\\main\\resources\\com\\guoxquiboloy\\le4\\Freaky.png");
-                imageView1 = new ImageView(newImage);
-                imageView2 = new ImageView(freakyAppImage);
-
-                imageView1.setFitWidth(imageWidth);
-                imageView1.setFitHeight(imageHeight);
-                imageView2.setFitWidth(imageWidth);
-                imageView2.setFitHeight(imageHeight);
-            
-            
-                app1.getChildren().add(imageView1);
-                app2.getChildren().add(imageView2);
-                genreAppBox.getChildren().addAll(app1,app2);
-
-                break;
+                    
+                    newImage = new Image("file:appstore\\src\\main\\resources\\com\\guoxquiboloy\\le4\\Mapua.png");
+                    imageView1 = new ImageView(newImage);
+                    imageView1.setFitWidth(imageWidth);
+                    imageView1.setFitHeight(imageHeight);
+                    app1.getChildren().add(imageView1);
+                    
+                     break;
+                case "Puzzle":
+                
+                    
+                
+                    break;
+                case "Horror":
+                    freakyAppImage = new Image("file:appstore\\src\\main\\resources\\com\\guoxquiboloy\\le4\\Freaky.png");
+                    imageView2 = new ImageView(freakyAppImage);
+                    imageView2.setFitWidth(imageWidth);
+                    imageView2.setFitHeight(imageHeight);
+                    app2.getChildren().add(imageView2);
+                    break;
+                    
+            }
                 
 
-            }
+                
+                genreAppBox.getChildren().addAll(app1,app2);
+
+                app1.setOnMouseClicked((MouseEvent event) -> {
+                    System.out.println("Clicked on: " + genre);  // Action when the HBox is clicked
+                    // Add custom action for each genre here
+                });
+
+                app2.setOnMouseClicked((MouseEvent event) -> {
+                    System.out.println("Clicked on: " + genre);  // Action when the HBox is clicked
+                    // Add custom action for each genre here
+                });
+                
+
             
+
                 
             
             
