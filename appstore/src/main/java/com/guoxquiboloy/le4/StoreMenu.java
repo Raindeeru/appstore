@@ -131,16 +131,15 @@ public class StoreMenu {
     public void addGenreRows(VBox parent) throws IOException{
         
         for(ArrayList<App> genreApps: getGenreApps()){
+            Font appFont = new Font("Trebuchet MS",30);
 
             VBox genreCategory = new VBox();
             Label genreLabel = new Label(genreApps.get(0).genre);
             ScrollPane appScroll = new ScrollPane();
-            HBox genreTitle = new HBox();
             genreLabel.setMaxWidth(800);
-            genreLabel.setFont( new Font("Trebuchet MS",30));
+            genreLabel.setFont(appFont);
             genreLabel.setStyle("-fx-text-fill: #FFFFFF; -fx-font-weight:bold; -fx-font-family: Trebuchet MS");
             genreLabel.setPadding(new Insets(0,0,10,0));
-            genreTitle.getChildren().add(genreLabel);
             HBox row = new HBox();
             appScroll.setContent(row);
             addAppsToRow(row, genreApps);
@@ -149,7 +148,7 @@ public class StoreMenu {
             appScroll.setPrefHeight(300);
             appScroll.setFitToHeight(true);
             genreCategory.setAlignment(Pos.CENTER);
-            genreCategory.getChildren().add(genreTitle);
+            genreCategory.getChildren().add(genreLabel);
             genreCategory.getChildren().add(appScroll);
             row.setSpacing(10);
             genreCategory.setPadding(new Insets(0, 20, 0, 20));
