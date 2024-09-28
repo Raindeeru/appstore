@@ -16,6 +16,7 @@ import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 public class StoreMenu {
     
@@ -118,6 +119,8 @@ public class StoreMenu {
             VBox genreCategory = new VBox();
             Label genreLabel = new Label(genreApps.get(0).genre);
             ScrollPane appScroll = new ScrollPane();
+            genreLabel.setMaxWidth(800);
+            genreLabel.setFont(new Font(25));
             HBox row = new HBox();
             appScroll.setContent(row);
             addAppsToRow(row, genreApps);
