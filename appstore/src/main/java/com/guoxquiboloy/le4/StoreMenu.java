@@ -121,8 +121,11 @@ public class StoreMenu {
     
     public Parent getParent() throws IOException{
         addGenreRows(parentContainer);
-        return (Parent)parentContainer;
+        scrollScreen.setContent(parentContainer);
+        scrollScreen.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        return (Parent)scrollScreen;
     }
     
+
     
 }
