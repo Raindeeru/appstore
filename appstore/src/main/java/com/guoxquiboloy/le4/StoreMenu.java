@@ -119,7 +119,6 @@ public class StoreMenu {
             ScrollPane appScroll = new ScrollPane();
             HBox row = new HBox();
             appScroll.setContent(row);
-            appScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
             addAppsToRow(row, genreApps);
             genreCategory.getChildren().add(genreLabel);
             genreCategory.getChildren().add(appScroll);
