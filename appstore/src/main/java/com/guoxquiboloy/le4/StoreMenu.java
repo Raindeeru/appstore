@@ -30,7 +30,7 @@ import javafx.geometry.Orientation;
 public class StoreMenu {
     
     Button button = new Button();
-    int currentApp = 0;
+    static int currentApp = 0;
     
         
 
@@ -205,13 +205,13 @@ public class StoreMenu {
 
         Button forward = new Button(">");
         Button back = new Button("<");
-        ImageView frontImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(0).getApp_image_path()).toExternalForm()));
+        ImageView frontImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(currentApp).getApp_image_path()).toExternalForm()));
         
         frontImageView.setFitHeight(300);
         frontImageView.setFitWidth(800);
 
         HBox appPreview = new HBox();
-        ImageView appPreviewImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(0).getApp_image_path()).toExternalForm()));
+        ImageView appPreviewImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(currentApp).getApp_image_path()).toExternalForm()));
         appPreviewImageView.setFitHeight(250);
         appPreviewImageView.setFitWidth(250);
 
@@ -224,9 +224,9 @@ public class StoreMenu {
 
 
         VBox titlePublisherRating = new VBox();
-        Label title = new Label(sliderApps.get(0).getTitle());
-        Label publisher = new Label(sliderApps.get(0).getPublisher());
-        Label rating = new Label(Float.toString(sliderApps.get(0).getStar_rating()) + " ★");
+        Label title = new Label(sliderApps.get(currentApp).getTitle());
+        Label publisher = new Label(sliderApps.get(currentApp).getPublisher());
+        Label rating = new Label(Float.toString(sliderApps.get(currentApp).getStar_rating()) + " ★");
 
         titlePublisherRating.setSpacing(5);
 
