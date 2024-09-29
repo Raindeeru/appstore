@@ -204,29 +204,37 @@ public class StoreMenu {
         Button forward = new Button(">");
         Button back = new Button("<");
         ImageView frontImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(0).getApp_image_path()).toExternalForm()));
-        ImageView behindImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(1).getApp_image_path()).toExternalForm()));
         
         frontImageView.setFitHeight(300);
         frontImageView.setFitWidth(800);
-        behindImageView.setFitHeight(300);
-        behindImageView.setFitWidth(800);
 
         HBox appPreview = new HBox();
         ImageView appPreviewImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(0).getApp_image_path()).toExternalForm()));
         appPreviewImageView.setFitHeight(250);
         appPreviewImageView.setFitWidth(250);
 
+        Rectangle roundImage = new Rectangle(
+            appPreviewImageView.getFitWidth(), appPreviewImageView.getFitHeight()
+        );
+        roundImage.setArcHeight(30);
+        roundImage.setArcWidth(30);
+        appPreviewImageView.setClip(roundImage);
+
+
         VBox titlePublisherRating = new VBox();
         Label title = new Label(sliderApps.get(0).getTitle());
         Label publisher = new Label(sliderApps.get(0).getPublisher());
-        Label rating = new Label(Float.toString(sliderApps.get(0).getStar_rating()));
+        Label rating = new Label(Float.toString(sliderApps.get(0).getStar_rating()) + " ★");
+
+        titlePublisherRating.setSpacing(5);
 
         title.setMaxWidth(250);
         title.setWrapText(true);
         publisher.setMaxWidth(250);
         publisher.setWrapText(true);
 
-        title.setStyle("-fx-font-size: 30");;
+        title.setFont(new Font("Trebuchet MS", 30));
+        title.setStyle("-fx-font-weight: bold");
 
         titlePublisherRating.getChildren().addAll(title, publisher, rating);
         appPreview.setAlignment(Pos.CENTER);
@@ -246,10 +254,8 @@ public class StoreMenu {
         
         GaussianBlur blur = new GaussianBlur(20);
         frontImageView.setEffect(blur);
-        behindImageView.setEffect(blur);
 
         frontImageView.setOpacity(0.5);
-        behindImageView.setOpacity(0);
 
         forward.setTranslateX(350);
         back.setTranslateX(-350);
@@ -266,7 +272,7 @@ public class StoreMenu {
     
         System.out.println(currentApp);
         forward.setOnAction(event ->{
-            moveImageForward(frontImageView, behindImageView);
+            moveImageForward(frontImageView);
             System.out.println(currentApp);
             if (currentApp == 0) {
                 back.setDisable(true);
@@ -280,10 +286,10 @@ public class StoreMenu {
             appPreviewImageView.setImage(frontImageView.getImage());
             title.setText(sliderApps.get(currentApp).getTitle());
             publisher.setText(sliderApps.get(currentApp).getPublisher());
-            rating.setText(Float.toString(sliderApps.get(currentApp).getStar_rating()));
+            rating.setText(Float.toString(sliderApps.get(currentApp).getStar_rating())+ " ★");
         });
         back.setOnAction(event ->{         
-            moveImageBackward(frontImageView, behindImageView);
+            moveImageBackward(frontImageView);
             System.out.println(currentApp);
             if (currentApp == 0) {
                 back.setDisable(true);
@@ -297,31 +303,26 @@ public class StoreMenu {
             appPreviewImageView.setImage(frontImageView.getImage());
             title.setText(sliderApps.get(currentApp).getTitle());
             publisher.setText(sliderApps.get(currentApp).getPublisher());
-            rating.setText(Float.toString(sliderApps.get(currentApp).getStar_rating()));
+            rating.setText(Float.toString(sliderApps.get(currentApp).getStar_rating())+ " ★");
 
 
         });
         
+        forward.setStyle("-fx-background-color: transparent; -fx-font-size:40; -fx-text-fill: white;");
+        back.setStyle("-fx-background-color: transparent; -fx-font-size:40; -fx-text-fill: white;");
 
 
-        appSlide.getChildren().addAll(behindImageView, frontImageView, appPreview, forward, back);
+        appSlide.getChildren().addAll(frontImageView, appPreview, forward, back);
         return appSlide;
     }
 
-    void moveImageForward(ImageView image1, ImageView image2){
-        image1.setImage(image2.getImage());
+    void moveImageForward(ImageView image){
         currentApp ++;
-        if (currentApp == sliderApps.size()-1) {
-           return; 
-        }
-        image2.setImage(new Image(getClass().getResource(sliderApps.get(currentApp+1).getApp_image_path()).toExternalForm()));
-        
+        image.setImage(new Image(getClass().getResource(sliderApps.get(currentApp).getApp_image_path()).toExternalForm()));
     }
-    void moveImageBackward(ImageView image1, ImageView image2){
-        image2.setImage(new Image(getClass().getResource(sliderApps.get(currentApp-1).getApp_image_path()).toExternalForm()));
-        image1.setImage(image2.getImage());
-        image2.setImage(new Image(getClass().getResource(sliderApps.get(currentApp).getApp_image_path()).toExternalForm()));
+    void moveImageBackward(ImageView image){
         currentApp --;
+        image.setImage(new Image(getClass().getResource(sliderApps.get(currentApp).getApp_image_path()).toExternalForm()));
     }
 
     public Parent getParent() throws IOException{
