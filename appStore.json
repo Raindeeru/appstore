@@ -5,9 +5,10 @@
     "genre": "Sci-Fi",
     "description": "Set in a future where AI has merged with humanity, players explore a sprawling galaxy, forging alliances and battling rogue AI factions in an immersive open-world RPG.",
     "star_rating": 4.4,
-    "downloads": 2400000,
+    "downloads": "2,400,000",
     "app_image_path": "Eclipse_of_the_Synth_Horizon.jpg",
-    "app_background_image_path": "Eclipse_of_the_Synth_Horizon_Background.jpg"
+    "app_background_image_path": "Eclipse_of_the_Synth_Horizon_Background.jpg",
+    "star_symbol": "★★★★☆"
   },
   {
     "title": "Chrono Shift: Lost Eras",
@@ -15,9 +16,10 @@
     "genre": "Fantasy",
     "description": "Players manipulate time to solve puzzles and fight enemies across different historical periods, altering timelines to prevent the destruction of reality.",
     "star_rating": 3.8,
-    "downloads": 910000,
+    "downloads": "910,000",
     "app_image_path": "Chrono_Shift_Lost_Eras.jpg",
-    "app_background_image_path": "Chrono_Shift_Lost_Eras_Background.jpg"
+    "app_background_image_path": "Chrono_Shift_Lost_Eras_Background.jpg",
+    "star_symbol": "★★★★☆"
   },
   {
     "title": "Project Singularity",
@@ -25,9 +27,10 @@
     "genre": "Sci-Fi",
     "description": "A team-based tactical shooter where players control advanced AI combat units fighting for control of a city in a dystopian future, where each faction is powered by unique neural networks.",
     "star_rating": 4.5,
-    "downloads": 1300000,
+    "downloads": "1,300,000",
     "app_image_path": "Project_Singularity.jpg",
-    "app_background_image_path": "Project_Singularity_Background.jpg"
+    "app_background_image_path": "Project_Singularity_Background.jpg",
+    "star_symbol": "★★★★★"
   },
   {
     "title": "Veil of Eternity",
@@ -35,9 +38,10 @@
     "genre": "Fantasy",
     "description": "Set in a magical universe where realms of reality are fading, players assume the roles of powerful guardians tasked with uniting ancient factions to restore balance to the fabric of time.",
     "star_rating": 4.7,
-    "downloads": 3600000,
+    "downloads": "3,600,000",
     "app_image_path": "Veil_of_Eternity.jpg",
-    "app_background_image_path": "Veil_of_Eternity_Background.jpg"
+    "app_background_image_path": "Veil_of_Eternity_Background.jpg",
+    "star_symbol": "★★★★★"
   },
   {
     "title": "Automation Overlords",
@@ -45,9 +49,10 @@
     "genre": "Strategy",
     "description": "Players take control of sentient AI managing a futuristic metropolis, balancing citizen needs while defending against rebel human factions who seek to reclaim control from their robotic rulers.",
     "star_rating": 3.9,
-    "downloads": 700000,
+    "downloads": "700,000",
     "app_image_path": "Automation_Overlords.jpg",
-    "app_background_image_path": "Automation_Overlords_Background.jpg"
+    "app_background_image_path": "Automation_Overlords_Background.jpg",
+    "star_symbol": "★★★★☆"
   },
   {
     "title": "Neon Shogun",
@@ -55,9 +60,10 @@
     "genre": "Sci-Fi",
     "description": "A cyberpunk action game set in a futuristic Tokyo, where players assume the role of a rogue samurai in a neon-lit world, using both blade and hacking skills to overthrow corrupt megacorporations.",
     "star_rating": 4.2,
-    "downloads": 1100000,
+    "downloads": "1,100,000",
     "app_image_path": "Neon_Shogun.jpg",
-    "app_background_image_path": "Neon_Shogun_Background.jpg"
+    "app_background_image_path": "Neon_Shogun_Background.jpg",
+    "star_symbol": "★★★★☆"
   },
   {
     "title": "Echoes of the Forgotten",
@@ -65,9 +71,10 @@
     "genre": "Horror",
     "description": "An atmospheric horror game where players explore an abandoned island inhabited by the fragmented memories of its former citizens, uncovering terrifying secrets about what caused their disappearance.",
     "star_rating": 4.0,
-    "downloads": 860000,
+    "downloads": "860,000",
     "app_image_path": "Echoes_of_the_Forgotten.jpg",
-    "app_background_image_path": "Echoes_of_the_Forgotten_Background.jpg"
+    "app_background_image_path": "Echoes_of_the_Forgotten_Background.jpg",
+    "star_symbol": "★★★★☆"
   },
   {
     "title": "Aetherbound",
@@ -75,9 +82,10 @@
     "genre": "Sci-Fi",
     "description": "A spacefaring RPG where players pilot customizable ships through uncharted solar systems, engaging in diplomacy, combat, and deep-space exploration, while uncovering an ancient race's forgotten techonology.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "star_rating": 4.7,
-    "downloads": 2100000,
+    "downloads": "2,100,000",
     "app_image_path": "Aetherbound.jpg",
-    "app_background_image_path": "Aetherbound_Background.jpg"
+    "app_background_image_path": "Aetherbound_Background.jpg",
+    "star_symbol": "★★★★★"
   },
   {
     "title": "BioScribe: Genesis Order",
@@ -85,9 +93,10 @@
     "genre": "Sci-Fi",
     "description": "In a world where genetic engineering is the norm, players design, evolve, and manage their own species to survive and thrive in a rapidly changing environment filled with natural and artificial threats.",
     "star_rating": 3.6,
-    "downloads": 410000,
+    "downloads": "410,000",
     "app_image_path": "BioScribe_Genesis_Order.jpg",
-    "app_background_image_path": "BioScribe_Genesis_Order_Background.jpg"
+    "app_background_image_path": "BioScribe_Genesis_Order_Background.jpg",
+    "star_symbol": "★★★★☆"
   },
   {
     "title": "Codebreakers: Rise of the AIs",
@@ -95,8 +104,9 @@
     "genre": "Strategy",
     "description": "A puzzle-driven thriller where players must hack into AI-driven systems to prevent a catastrophic global cyberwar, solving, complex logic challenges while outsmarting increasingly intelligent and adaptive foes.",
     "star_rating": 4.1,
-    "downloads": 500000,
+    "downloads": "500,000",
     "app_image_path": "Codebreaker_Rise of the AIs.jpg",
-    "app_background_image_path": "Codebreaker_Rise of the AIs_Background.jpg"
+    "app_background_image_path": "Codebreaker_Rise of the AIs_Background.jpg",
+    "star_symbol": "★★★★☆"
   }
 ]

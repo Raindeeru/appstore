@@ -84,7 +84,7 @@ public class AppMenu {
         installButton.setTranslateX(320);
         Label titleL = new Label(app.getTitle());
         Label pubL = new Label("By: " + app.getPublisher());
-        Label rateL = new Label("Rating: " + app.getStar_rating() + "★");
+        Label rateL = new Label("Rating: " + app.getStar_rating() + app.getStar_symbol());
         Label genreL = new Label(app.getGenre());
         Label descriL = new Label(app.getDescription());
         Label downL = new Label("Downloads: " + app.getDownloads());
