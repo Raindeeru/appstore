@@ -3,6 +3,7 @@ package com.guoxquiboloy.le4;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -10,16 +11,19 @@ import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.geometry.Orientation;
 
 public class StoreMenu {
     
@@ -41,6 +45,7 @@ public class StoreMenu {
     
     //PICTURE BUTTON
     
+    public static ArrayList<App> sliderApps;
 
     public StoreMenu(){
         
@@ -76,15 +81,14 @@ public class StoreMenu {
         //This is the layout of the games in storemenu :o
         
         VBox gameContain = new VBox(); 
-
         ImageView imageView = new ImageView(getClass().getResource(app.getApp_image_path()).toExternalForm());
  
         imageView.setFitHeight(imageHeight);
         imageView.setFitWidth(imageWidth);
 
-        //mali pa po image pls helpppppp
+        //mali pa po image pls helpppppp (DONE!)
         Label titleLabel = new Label(app.getTitle()); 
-        Label rateLabel = new Label("Rating: " + app.getStar_rating());
+        Label rateLabel = new Label(app.getStar_rating() + " ★");
 
         //Label style 
         gameContain.setSpacing(2);
@@ -148,18 +152,60 @@ public class StoreMenu {
             appScroll.setPrefHeight(300);
             appScroll.setFitToHeight(true);
             genreCategory.setAlignment(Pos.CENTER);
-            genreCategory.getChildren().add(genreLabel);
-            genreCategory.getChildren().add(appScroll);
+            
+            
             row.setSpacing(10);
             genreCategory.setPadding(new Insets(0, 20, 0, 20));
             genreCategory.setPrefWidth(1200);
             parent.getChildren().add(genreCategory);
-           
             appScroll.setStyle("-fx-background-color: transparent;");
+
+            styleScrollBars(appScroll);
+
+            genreCategory.getChildren().add(genreLabel);
+            genreCategory.getChildren().add(appScroll);
+            
             
         }
     }
+
+    public static void styleScrollBars(ScrollPane scrollPane) {
+        // Add a listener to the skin property to ensure the skin is set before accessing the scrollbars
+        scrollPane.skinProperty().addListener((obs, oldSkin, newSkin) -> {
+            // Delay the execution to ensure the scrollbars and thumbs are fully initialized
+            Platform.runLater(() -> {
+                // Find all ScrollBars in the ScrollPane after the skin is applied
+                for (javafx.scene.Node node : scrollPane.lookupAll(".scroll-bar")) {
+                    if (node instanceof ScrollBar) {
+                        ScrollBar scrollBar = (ScrollBar) node;
+
+                        // Customize the vertical scrollbar
+                        if (scrollBar.getOrientation() == Orientation.HORIZONTAL) {
+                            scrollBar.setStyle("-fx-background-color: #191a1c;"); // Scrollbar background color
+                        }
+
+                        // Customize the thumb (draggable part)
+                        javafx.scene.Node thumb = scrollBar.lookup(".thumb");
+                        thumb.setStyle("-fx-background-color: #eb7255;");
+                        
+                    }
+                }
+            });
+        });
+    }
     
+    public StackPane appSlider() throws IOException{
+        StackPane appSlide = new StackPane();
+        Button forward = new Button(">");
+        Button back = new Button("<");
+        ImageView frontImageView;
+        ImageView behindImageView;
+        sliderApps = AppJsonParser.getApps();
+        
+
+        return appSlide;
+    }
+
     public Parent getParent() throws IOException{
         
         HBox titleBar = new HBox();
@@ -169,8 +215,9 @@ public class StoreMenu {
         title.setStyle("-fx-text-fill: #FFFFFF; -fx-font-weight:bold");
         titleBar.getChildren().add(title);
         parentContainer.getChildren().add(titleBar);
-        VBox.setMargin(titleBar, new Insets(10,0,0,50));
         
+        titleBar.setStyle("-fx-border-style: hidden hidden solid hidden; -fx-border-width: 2; -fx-border-color: #eb7255;");
+        titleBar.setPadding(new Insets(5, 5, 5, 5));
         addGenreRows(content);
         scrollScreen.setContent(content);
         scrollScreen.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);

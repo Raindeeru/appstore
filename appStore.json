@@ -32,7 +32,7 @@
   {
     "title": "Veil of Eternity",
     "publisher": "Ethereal Games",
-    "genre": "Fantasy RPG",
+    "genre": "Fantasy",
     "description": "Set in a magical universe where realms of reality are fading, players assume the roles of powerful guardians tasked with uniting ancient factions to restore balance to the fabric of time.",
     "star_rating": 4.7,
     "downloads": 3600000,
@@ -42,7 +42,7 @@
   {
     "title": "Automation Overlords",
     "publisher": "CyberFate Studios",
-    "genre": "Strategy, Simulation",
+    "genre": "Strategy",
     "description": "Players take control of sentient AI managing a futuristic metropolis, balancing citizen needs while defending against rebel human factions who seek to reclaim control from their robotic rulers.",
     "star_rating": 3.9,
     "downloads": 700000,
@@ -73,7 +73,7 @@
     "title": "Aetherbound",
     "publisher": "Astral Pulse Entertainment",
     "genre": "Sci-Fi",
-    "description": "A spacefaring RPG where players pilot customizable ships through uncharted solar systems, engaging in diplomacy, combat, and deep-space exploration, while uncovering an ancient race's forgotten techonology.",
+    "description": "A spacefaring RPG where players pilot customizable ships through uncharted solar systems, engaging in diplomacy, combat, and deep-space exploration, while uncovering an ancient race's forgotten techonology.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "star_rating": 4.7,
     "downloads": 2100000,
     "app_image_path": "Aetherbound.jpg",
@@ -92,7 +92,7 @@
   {
     "title": "Codebreakers: Rise of the AIs",
     "publisher": "Quantum Shift Interactive",
-    "genre": "Puzzle, Thriller",
+    "genre": "Strategy",
     "description": "A puzzle-driven thriller where players must hack into AI-driven systems to prevent a catastrophic global cyberwar, solving, complex logic challenges while outsmarting increasingly intelligent and adaptive foes.",
     "star_rating": 4.1,
     "downloads": 500000,
