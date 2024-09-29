@@ -17,7 +17,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         StoreMenu storeMenu = new StoreMenu();
 
-        scene = new Scene(storeMenu.getParent(), 800, 600);
+        scene = new Scene(storeMenu.getParent(), 900, 600);
         stage.setScene(scene);
         stage.show();
     }

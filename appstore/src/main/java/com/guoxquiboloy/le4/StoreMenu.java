@@ -213,17 +213,28 @@ public class StoreMenu {
         appPreviewImageView.setFitHeight(250);
         appPreviewImageView.setFitWidth(250);
 
+        Rectangle roundImage = new Rectangle(
+            appPreviewImageView.getFitWidth(), appPreviewImageView.getFitHeight()
+        );
+        roundImage.setArcHeight(30);
+        roundImage.setArcWidth(30);
+        appPreviewImageView.setClip(roundImage);
+
+
         VBox titlePublisherRating = new VBox();
         Label title = new Label(sliderApps.get(0).getTitle());
         Label publisher = new Label(sliderApps.get(0).getPublisher());
-        Label rating = new Label(Float.toString(sliderApps.get(0).getStar_rating()));
+        Label rating = new Label(Float.toString(sliderApps.get(0).getStar_rating()) + " ★");
+
+        titlePublisherRating.setSpacing(5);
 
         title.setMaxWidth(250);
         title.setWrapText(true);
         publisher.setMaxWidth(250);
         publisher.setWrapText(true);
 
-        title.setStyle("-fx-font-size: 30");;
+        title.setFont(new Font("Trebuchet MS", 30));
+        title.setStyle("-fx-font-weight: bold");
 
         titlePublisherRating.getChildren().addAll(title, publisher, rating);
         appPreview.setAlignment(Pos.CENTER);
@@ -275,7 +286,7 @@ public class StoreMenu {
             appPreviewImageView.setImage(frontImageView.getImage());
             title.setText(sliderApps.get(currentApp).getTitle());
             publisher.setText(sliderApps.get(currentApp).getPublisher());
-            rating.setText(Float.toString(sliderApps.get(currentApp).getStar_rating()));
+            rating.setText(Float.toString(sliderApps.get(currentApp).getStar_rating())+ " ★");
         });
         back.setOnAction(event ->{         
             moveImageBackward(frontImageView);
@@ -292,11 +303,13 @@ public class StoreMenu {
             appPreviewImageView.setImage(frontImageView.getImage());
             title.setText(sliderApps.get(currentApp).getTitle());
             publisher.setText(sliderApps.get(currentApp).getPublisher());
-            rating.setText(Float.toString(sliderApps.get(currentApp).getStar_rating()));
+            rating.setText(Float.toString(sliderApps.get(currentApp).getStar_rating())+ " ★");
 
 
         });
         
+        forward.setStyle("-fx-background-color: transparent; -fx-font-size:40; -fx-text-fill: white;");
+        back.setStyle("-fx-background-color: transparent; -fx-font-size:40; -fx-text-fill: white;");
 
 
         appSlide.getChildren().addAll(frontImageView, appPreview, forward, back);
