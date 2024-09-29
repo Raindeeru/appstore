@@ -8,9 +8,10 @@ public class App {
     String genre;
     String description;
     float star_rating;
-    int downloads;
+    String downloads;
     String app_image_path = "Mapua.png";
     String app_background_image_path = "Mapua.png";
+    String star_symbol;
     
     public String getApp_image_path() {
         return app_image_path;
@@ -41,11 +42,16 @@ public class App {
         return star_rating;
     }
 
-    public int getDownloads() {
+    public String getStar_symbol()
+    {
+        return star_symbol;
+    }
+
+    public String getDownloads() {
         return downloads;
     }
-    public App(String title, String publisher, String genre, String description, float star_rating, int downloads,
-            String app_image_path, String app_background_image_path) {
+    public App(String title, String publisher, String genre, String description, float star_rating, String downloads,
+            String app_image_path, String app_background_image_path, String star_symbol) {
         this.title = title;
         this.publisher = publisher;
         this.genre = genre;
@@ -54,6 +60,7 @@ public class App {
         this.downloads = downloads;
         this.app_image_path = app_image_path;
         this.app_background_image_path = app_background_image_path;
+        this.star_symbol = star_symbol;
     }
     
 }
