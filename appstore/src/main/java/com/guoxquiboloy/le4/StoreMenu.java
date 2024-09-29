@@ -204,12 +204,9 @@ public class StoreMenu {
         Button forward = new Button(">");
         Button back = new Button("<");
         ImageView frontImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(0).getApp_image_path()).toExternalForm()));
-        ImageView behindImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(1).getApp_image_path()).toExternalForm()));
         
         frontImageView.setFitHeight(300);
         frontImageView.setFitWidth(800);
-        behindImageView.setFitHeight(300);
-        behindImageView.setFitWidth(800);
 
         HBox appPreview = new HBox();
         ImageView appPreviewImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(0).getApp_image_path()).toExternalForm()));
@@ -246,10 +243,8 @@ public class StoreMenu {
         
         GaussianBlur blur = new GaussianBlur(20);
         frontImageView.setEffect(blur);
-        behindImageView.setEffect(blur);
 
         frontImageView.setOpacity(0.5);
-        behindImageView.setOpacity(0);
 
         forward.setTranslateX(350);
         back.setTranslateX(-350);
@@ -266,7 +261,7 @@ public class StoreMenu {
     
         System.out.println(currentApp);
         forward.setOnAction(event ->{
-            moveImageForward(frontImageView, behindImageView);
+            moveImageForward(frontImageView);
             System.out.println(currentApp);
             if (currentApp == 0) {
                 back.setDisable(true);
@@ -283,7 +278,7 @@ public class StoreMenu {
             rating.setText(Float.toString(sliderApps.get(currentApp).getStar_rating()));
         });
         back.setOnAction(event ->{         
-            moveImageBackward(frontImageView, behindImageView);
+            moveImageBackward(frontImageView);
             System.out.println(currentApp);
             if (currentApp == 0) {
                 back.setDisable(true);
@@ -304,24 +299,17 @@ public class StoreMenu {
         
 
 
-        appSlide.getChildren().addAll(behindImageView, frontImageView, appPreview, forward, back);
+        appSlide.getChildren().addAll(frontImageView, appPreview, forward, back);
         return appSlide;
     }
 
-    void moveImageForward(ImageView image1, ImageView image2){
-        image1.setImage(image2.getImage());
+    void moveImageForward(ImageView image){
         currentApp ++;
-        if (currentApp == sliderApps.size()-1) {
-           return; 
-        }
-        image2.setImage(new Image(getClass().getResource(sliderApps.get(currentApp+1).getApp_image_path()).toExternalForm()));
-        
+        image.setImage(new Image(getClass().getResource(sliderApps.get(currentApp).getApp_image_path()).toExternalForm()));
     }
-    void moveImageBackward(ImageView image1, ImageView image2){
-        image2.setImage(new Image(getClass().getResource(sliderApps.get(currentApp-1).getApp_image_path()).toExternalForm()));
-        image1.setImage(image2.getImage());
-        image2.setImage(new Image(getClass().getResource(sliderApps.get(currentApp).getApp_image_path()).toExternalForm()));
+    void moveImageBackward(ImageView image){
         currentApp --;
+        image.setImage(new Image(getClass().getResource(sliderApps.get(currentApp).getApp_image_path()).toExternalForm()));
     }
 
     public Parent getParent() throws IOException{
