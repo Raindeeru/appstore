@@ -17,7 +17,7 @@
     "star_rating": 3.8,
     "downloads": 910000,
     "app_image_path": "Chrono_Shift_Lost_Eras.jpg",
-    "app_background_image_path": "Eclipse_of_the_Synth_Horizon_Background.jpg"
+    "app_background_image_path": "Chrono_Shift_Lost_Eras_Background.jpg"
   },
   {
     "title": "Project Singularity",
@@ -27,7 +27,7 @@
     "star_rating": 4.5,
     "downloads": 1300000,
     "app_image_path": "Project_Singularity.jpg",
-    "app_background_image_path": "Eclipse_of_the_Synth_Horizon_Background.jpg"
+    "app_background_image_path": "Project_Singularity_Background.jpg"
   },
   {
     "title": "Veil of Eternity",
@@ -37,7 +37,7 @@
     "star_rating": 4.7,
     "downloads": 3600000,
     "app_image_path": "Veil_of_Eternity.jpg",
-    "app_background_image_path": "Eclipse_of_the_Synth_Horizon_Background.jpg"
+    "app_background_image_path": "Veil_of_Eternity_Background.jpg"
   },
   {
     "title": "Automation Overlords",
@@ -47,7 +47,7 @@
     "star_rating": 3.9,
     "downloads": 700000,
     "app_image_path": "Automation_Overlords.jpg",
-    "app_background_image_path": "Eclipse_of_the_Synth_Horizon_Background.jpg"
+    "app_background_image_path": "Automation_Overlords_Background.jpg"
   },
   {
     "title": "Neon Shogun",
@@ -57,7 +57,7 @@
     "star_rating": 4.2,
     "downloads": 1100000,
     "app_image_path": "Neon_Shogun.jpg",
-    "app_background_image_path": "Eclipse_of_the_Synth_Horizon_Background.jpg"
+    "app_background_image_path": "Neon_Shogun_Background.jpg"
   },
   {
     "title": "Echoes of the Forgotten",
@@ -67,7 +67,7 @@
     "star_rating": 4.0,
     "downloads": 860000,
     "app_image_path": "Echoes_of_the_Forgotten.jpg",
-    "app_background_image_path": "Eclipse_of_the_Synth_Horizon_Background.jpg"
+    "app_background_image_path": "Echoes_of_the_Forgotten_Background.jpg"
   },
   {
     "title": "Aetherbound",
@@ -77,7 +77,7 @@
     "star_rating": 4.7,
     "downloads": 2100000,
     "app_image_path": "Aetherbound.jpg",
-    "app_background_image_path": "Eclipse_of_the_Synth_Horizon_Background.jpg"
+    "app_background_image_path": "Aetherbound_Background.jpg"
   },
   {
     "title": "BioScribe: Genesis Order",
@@ -87,7 +87,7 @@
     "star_rating": 3.6,
     "downloads": 410000,
     "app_image_path": "BioScribe_Genesis_Order.jpg",
-    "app_background_image_path": "Eclipse_of_the_Synth_Horizon_Background.jpg"
+    "app_background_image_path": "BioScribe_Genesis_Order_Background.jpg"
   },
   {
     "title": "Codebreakers: Rise of the AIs",
@@ -97,6 +97,6 @@
     "star_rating": 4.1,
     "downloads": 500000,
     "app_image_path": "Codebreaker_Rise of the AIs.jpg",
-    "app_background_image_path": "Eclipse_of_the_Synth_Horizon_Background.jpg"
+    "app_background_image_path": "Codebreaker_Rise of the AIs_Background.jpg"
   }
 ]
