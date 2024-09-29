@@ -14,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.HBox;
@@ -28,6 +30,7 @@ import javafx.geometry.Orientation;
 public class StoreMenu {
     
     Button button = new Button();
+    int currentApp = 0;
     
         
 
@@ -196,14 +199,129 @@ public class StoreMenu {
     
     public StackPane appSlider() throws IOException{
         StackPane appSlide = new StackPane();
+        sliderApps = AppJsonParser.getApps();
+
         Button forward = new Button(">");
         Button back = new Button("<");
-        ImageView frontImageView;
-        ImageView behindImageView;
-        sliderApps = AppJsonParser.getApps();
+        ImageView frontImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(0).getApp_image_path()).toExternalForm()));
+        ImageView behindImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(1).getApp_image_path()).toExternalForm()));
+        
+        frontImageView.setFitHeight(300);
+        frontImageView.setFitWidth(800);
+        behindImageView.setFitHeight(300);
+        behindImageView.setFitWidth(800);
+
+        HBox appPreview = new HBox();
+        ImageView appPreviewImageView = new ImageView(new Image(getClass().getResource(sliderApps.get(0).getApp_image_path()).toExternalForm()));
+        appPreviewImageView.setFitHeight(250);
+        appPreviewImageView.setFitWidth(250);
+
+        VBox titlePublisherRating = new VBox();
+        Label title = new Label(sliderApps.get(0).getTitle());
+        Label publisher = new Label(sliderApps.get(0).getPublisher());
+        Label rating = new Label(Float.toString(sliderApps.get(0).getStar_rating()));
+
+        title.setMaxWidth(250);
+        title.setWrapText(true);
+        publisher.setMaxWidth(250);
+        publisher.setWrapText(true);
+
+        title.setStyle("-fx-font-size: 30");;
+
+        titlePublisherRating.getChildren().addAll(title, publisher, rating);
+        appPreview.setAlignment(Pos.CENTER);
+        appPreview.setSpacing(20);
+        titlePublisherRating.setAlignment(Pos.CENTER_LEFT);
+
+        appPreview.getChildren().addAll(appPreviewImageView, titlePublisherRating);
+
+        appPreview.setCursor(Cursor.HAND);
+        appPreview.setOnMouseClicked(event -> {
+            {
+                try{Main.switchToAppMenu(sliderApps.get(currentApp));}
+                catch(IOException e){throw new RuntimeException(e);}
+            }
+        }
+        );
+        
+        GaussianBlur blur = new GaussianBlur(20);
+        frontImageView.setEffect(blur);
+        behindImageView.setEffect(blur);
+
+        frontImageView.setOpacity(0.5);
+        behindImageView.setOpacity(0);
+
+        forward.setTranslateX(350);
+        back.setTranslateX(-350);
+
+        if (currentApp == 0) {
+            back.setDisable(true);
+        }else if(currentApp == sliderApps.size()-1){
+            forward.setDisable(true);
+        }
+        else{
+            forward.setDisable(false);
+            back.setDisable(false);
+        }
+    
+        System.out.println(currentApp);
+        forward.setOnAction(event ->{
+            moveImageForward(frontImageView, behindImageView);
+            System.out.println(currentApp);
+            if (currentApp == 0) {
+                back.setDisable(true);
+            }else if(currentApp == sliderApps.size()-1){
+                forward.setDisable(true);
+            }
+            else{
+                forward.setDisable(false);
+                back.setDisable(false);
+            }
+            appPreviewImageView.setImage(frontImageView.getImage());
+            title.setText(sliderApps.get(currentApp).getTitle());
+            publisher.setText(sliderApps.get(currentApp).getPublisher());
+            rating.setText(Float.toString(sliderApps.get(currentApp).getStar_rating()));
+        });
+        back.setOnAction(event ->{         
+            moveImageBackward(frontImageView, behindImageView);
+            System.out.println(currentApp);
+            if (currentApp == 0) {
+                back.setDisable(true);
+            }else if(currentApp == sliderApps.size()-1){
+                forward.setDisable(true);
+            }
+            else{
+                forward.setDisable(false);
+                back.setDisable(false);
+            }
+            appPreviewImageView.setImage(frontImageView.getImage());
+            title.setText(sliderApps.get(currentApp).getTitle());
+            publisher.setText(sliderApps.get(currentApp).getPublisher());
+            rating.setText(Float.toString(sliderApps.get(currentApp).getStar_rating()));
+
+
+        });
         
 
+
+        appSlide.getChildren().addAll(behindImageView, frontImageView, appPreview, forward, back);
         return appSlide;
+    }
+
+    void moveImageForward(ImageView image1, ImageView image2){
+        image1.setImage(image2.getImage());
+        currentApp ++;
+        if (currentApp == sliderApps.size()-1) {
+           return; 
+        }
+        image2.setImage(new Image(getClass().getResource(sliderApps.get(currentApp+1).getApp_image_path()).toExternalForm()));
+        
+    }
+    void moveImageBackward(ImageView image1, ImageView image2){
+        image2.setImage(new Image(getClass().getResource(sliderApps.get(currentApp-1).getApp_image_path()).toExternalForm()));
+        image1.setImage(image2.getImage());
+        image2.setImage(new Image(getClass().getResource(sliderApps.get(currentApp).getApp_image_path()).toExternalForm()));
+        currentApp --;
     }
 
     public Parent getParent() throws IOException{
@@ -219,13 +337,16 @@ public class StoreMenu {
         titleBar.setStyle("-fx-border-style: hidden hidden solid hidden; -fx-border-width: 2; -fx-border-color: #eb7255;");
         titleBar.setPadding(new Insets(5, 5, 5, 5));
         addGenreRows(content);
-        scrollScreen.setContent(content);
+        StackPane slider = appSlider();
+        VBox contentAndSlider = new VBox();
+        contentAndSlider.getChildren().addAll(slider, content);
+        scrollScreen.setContent(contentAndSlider);
         scrollScreen.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollScreen.setFitToWidth(true);
-        parentContainer.setSpacing(30);
         content.setStyle("-fx-background-color: transparent");
         parentContainer.setStyle("-fx-background-color: #191a1c");
-        parentContainer.getChildren().add(scrollScreen);
+
+        parentContainer.getChildren().addAll(scrollScreen);
         
         return (Parent)parentContainer;
     }

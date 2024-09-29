@@ -102,9 +102,7 @@ public class AppMenu {
         ImageView semiTransparentImageView = new ImageView(semiTransparentImage);
         bottomText.setPrefHeight(9999);
         
-        ColorAdjust adj = new ColorAdjust(0, -0.9, -0.5, 0);
         GaussianBlur blur = new GaussianBlur(20);
-        adj.setInput(blur);
         semiTransparentImageView.setEffect(blur);
         semiTransparentImageView.setOpacity(0.5);
 
