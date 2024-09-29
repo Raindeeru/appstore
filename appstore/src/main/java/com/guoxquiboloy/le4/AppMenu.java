@@ -39,7 +39,6 @@ public class AppMenu {
 
     public Parent getApp() throws IOException{
 
-
         VBox appContain = new VBox();
         HBox imageAndTitle = new HBox();
         VBox titles = new VBox();

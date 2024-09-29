@@ -186,7 +186,9 @@ public class StoreMenu {
                         if (scrollBar.getOrientation() == Orientation.HORIZONTAL) {
                             scrollBar.setStyle("-fx-background-color: #191a1c;"); // Scrollbar background color
                         }
-
+                        if (scrollBar.getOrientation() == Orientation.VERTICAL) {
+                            scrollBar.setStyle("-fx-background-color: #191a1c;"); // Scrollbar background color
+                        }
                         // Customize the thumb (draggable part)
                         javafx.scene.Node thumb = scrollBar.lookup(".thumb");
                         thumb.setStyle("-fx-background-color: #eb7255;");
@@ -259,30 +261,10 @@ public class StoreMenu {
 
         forward.setTranslateX(350);
         back.setTranslateX(-350);
-
-        if (currentApp == 0) {
-            back.setDisable(true);
-        }else if(currentApp == sliderApps.size()-1){
-            forward.setDisable(true);
-        }
-        else{
-            forward.setDisable(false);
-            back.setDisable(false);
-        }
     
         System.out.println(currentApp);
         forward.setOnAction(event ->{
             moveImageForward(frontImageView);
-            System.out.println(currentApp);
-            if (currentApp == 0) {
-                back.setDisable(true);
-            }else if(currentApp == sliderApps.size()-1){
-                forward.setDisable(true);
-            }
-            else{
-                forward.setDisable(false);
-                back.setDisable(false);
-            }
             appPreviewImageView.setImage(frontImageView.getImage());
             title.setText(sliderApps.get(currentApp).getTitle());
             publisher.setText(sliderApps.get(currentApp).getPublisher());
@@ -290,16 +272,6 @@ public class StoreMenu {
         });
         back.setOnAction(event ->{         
             moveImageBackward(frontImageView);
-            System.out.println(currentApp);
-            if (currentApp == 0) {
-                back.setDisable(true);
-            }else if(currentApp == sliderApps.size()-1){
-                forward.setDisable(true);
-            }
-            else{
-                forward.setDisable(false);
-                back.setDisable(false);
-            }
             appPreviewImageView.setImage(frontImageView.getImage());
             title.setText(sliderApps.get(currentApp).getTitle());
             publisher.setText(sliderApps.get(currentApp).getPublisher());
@@ -318,10 +290,16 @@ public class StoreMenu {
 
     void moveImageForward(ImageView image){
         currentApp ++;
+        if(currentApp == sliderApps.size()){
+            currentApp = 0; 
+        }
         image.setImage(new Image(getClass().getResource(sliderApps.get(currentApp).getApp_image_path()).toExternalForm()));
     }
     void moveImageBackward(ImageView image){
         currentApp --;
+        if(currentApp == -1){
+            currentApp = sliderApps.size() - 1; 
+        }
         image.setImage(new Image(getClass().getResource(sliderApps.get(currentApp).getApp_image_path()).toExternalForm()));
     }
 
@@ -346,6 +324,8 @@ public class StoreMenu {
         scrollScreen.setFitToWidth(true);
         content.setStyle("-fx-background-color: transparent");
         parentContainer.setStyle("-fx-background-color: #191a1c");
+
+        styleScrollBars(scrollScreen);
 
         parentContainer.getChildren().addAll(scrollScreen);
         
